@@ -167,7 +167,6 @@
       const genderButtons = `<div class="gender-buttons"><button class="gender-btn" onclick="showRecords('${fed}','${cat}','male')">MEN</button><button class="gender-btn" onclick="showRecords('${fed}','${cat}','female')">WOMEN</button></div>`;
       container.innerHTML = `<h3>${cat.toUpperCase()}</h3>` + genderButtons + `<div id="${fed}-${cat}-records" class="records-table"></div>`;
     }
-
     function showRecords(fed, cat, gender) {
       const data = records[fed] && records[fed][cat] && records[fed][cat][gender];
       const tableContainer = document.getElementById(`${fed}-${cat}-records`);
@@ -182,7 +181,6 @@
       html += `</tbody></table>`;
       tableContainer.innerHTML = html;
     }
-
     // Initialisation
     showFederation('aida');
   });
