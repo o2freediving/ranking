@@ -7,13 +7,24 @@ body {
     color: #333;
 }
 
-/* En-tête */
+/* En-tête avec logo */
 header {
     background: linear-gradient(135deg, #002060, #FF0000);
     color: white;
     text-align: center;
-    padding: 2rem 0;
+    padding: 1rem 0;
     margin-bottom: 2rem;
+}
+
+.logo-container {
+    margin-bottom: 1rem;
+}
+
+.logo {
+    max-width: 150px;
+    height: auto;
+    border-radius: 50%;
+    border: 3px solid white;
 }
 
 header h1 {
@@ -56,15 +67,10 @@ header h1 {
     color: white;
 }
 
-.federation-btn .logo {
-    display: block;
-    font-weight: 700;
-}
-
 /* Sections des fédérations */
 .federation-section {
     display: none;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
     background: white;
@@ -175,4 +181,31 @@ tr:nth-child(even) {
 
 tr:hover {
     background-color: #e9ecef;
+}
+
+/* Pied de page */
+footer {
+    background: #002060;
+    color: white;
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 2rem;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.instagram-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.instagram-link:hover {
+    color: #FF0000;
 }
