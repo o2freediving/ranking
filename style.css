@@ -1,264 +1,181 @@
-:root {
-  --primary-color: #002060;
-  --secondary-color: #FF0000;
-  --light-bg: #f8f9fa;
-  --text-color: #333;
-  --white: #fff;
-  --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  --border-radius: 10px;
-  --transition: all 0.3s ease;
-}
-
-/* Réinitialisation et base */
-* {
+/* Reset et base */
+body {
+  font-family: 'Montserrat', Arial, sans-serif;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Montserrat', sans-serif;
-  background-color: var(--light-bg);
-  color: var(--text-color);
+  background-color: #f4f4f9;
+  color: #333;
   line-height: 1.6;
 }
 
-/* En-tête */
 header {
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  color: var(--white);
   text-align: center;
-  padding: 2rem 0;
-  margin-bottom: 2rem;
+  padding: 20px 0;
+  background-color: #002060;
+  color: white;
 }
 
 .logo-container {
-  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 .logo {
-  max-width: 80px;
-  height: auto;
   border-radius: 50%;
-  will-change: transform;
-  transition: var(--transition);
-}
-
-.logo:hover {
-  transform: scale(1.05);
 }
 
 .logo-text {
-  color: var(--white);
-  font-size: 0.8rem;
-  font-weight: 300;
-  letter-spacing: 1px;
-  margin-top: 0.5rem;
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
-header h1 {
-  font-size: clamp(1.8rem, 5vw, 2.5rem);
-  font-weight: 700;
-  margin: 0.5rem 0;
-  letter-spacing: 2px;
+h1 {
+  margin: 10px 0;
+  font-size: 2rem;
 }
 
 .subtitle {
-  font-size: 1rem;
+  margin: 0;
+  font-size: 1.2rem;
   font-weight: 300;
-  letter-spacing: 3px;
-  opacity: 0.9;
 }
 
-/* Boutons de fédération */
+/* Boutons de choix de fédération */
 .federation-choice {
   display: flex;
   justify-content: center;
-  gap: 2rem;
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0;
 }
 
 .federation-btn {
-  background: var(--white);
-  color: var(--primary-color);
-  border: 3px solid var(--secondary-color);
-  padding: 1rem 2rem;
-  font-size: 1.5rem;
+  padding: 10px 20px;
+  font-size: 1rem;
   font-weight: 600;
-  border-radius: 50px;
+  background-color: #002060;
+  color: white;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  transition: var(--transition);
-  min-width: 150px;
-  will-change: background, color;
 }
 
 .federation-btn:hover {
-  background: var(--secondary-color);
-  color: var(--white);
+  background-color: #003399;
 }
 
 /* Sections des fédérations */
 .federation-section {
-  display: none;
-  max-width: 1200px;
-  margin: 0 auto 2rem;
-  padding: 2rem;
-  background: var(--white);
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow);
-}
-
-.federation-section h2 {
-  color: var(--primary-color);
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-  text-align: center;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
 
 .federation-subtitle {
   font-size: 0.9rem;
-  color: #666;
   font-weight: 400;
-  text-align: center;
-  margin-bottom: 1.5rem;
+  color: #666;
 }
 
 /* Boutons de catégorie */
 .category-buttons {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-  margin: 2rem 0;
+  gap: 10px;
+  margin: 20px 0;
 }
 
 .category-btn {
-  background: var(--primary-color);
-  color: var(--white);
-  border: none;
-  padding: 0.8rem 1.2rem;
+  padding: 8px 12px;
   font-size: 0.9rem;
-  font-weight: 600;
-  border-radius: 8px;
+  background-color: #002060;
+  color: white;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  transition: var(--transition);
-  width: 120px;
-  height: 80px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  will-change: background;
 }
 
-.category-btn:hover {
-  background: var(--secondary-color);
+.category-btn span {
+  font-weight: 600;
 }
 
 .category-btn small {
   font-size: 0.7rem;
   font-weight: 400;
-  text-align: center;
 }
 
-/* Boutons Homme/Femme */
+.category-btn:hover {
+  background-color: #003399;
+}
+
+/* Boutons de genre */
 .gender-buttons {
   display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin: 1rem 0;
+  gap: 10px;
+  margin: 10px 0;
 }
 
 .gender-btn {
-  background: var(--secondary-color);
-  color: var(--white);
+  padding: 8px 15px;
+  font-size: 0.9rem;
+  background-color: #002060;
+  color: white;
   border: none;
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 50px;
+  border-radius: 5px;
   cursor: pointer;
-  transition: var(--transition);
-  will-change: background;
 }
 
 .gender-btn:hover {
-  background: var(--primary-color);
+  background-color: #003399;
 }
 
 /* Tableaux des records */
-.records-table {
-  margin-top: 1rem;
-  overflow-x: auto;
+.records-container {
+  margin-top: 15px;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 1rem;
+  margin-top: 10px;
 }
 
 th, td {
-  padding: 1rem;
+  border: 1px solid #ddd;
+  padding: 10px;
   text-align: left;
-  border-bottom: 1px solid #ddd;
 }
 
 th {
-  background-color: var(--primary-color);
-  color: var(--white);
-  font-weight: 600;
+  background-color: #002060;
+  color: white;
 }
 
 tr:nth-child(even) {
-  background-color: var(--light-bg);
-}
-
-tr:hover {
-  background-color: #e9ecef;
+  background-color: #f9f9f9;
 }
 
 /* Pied de page */
 footer {
-  background: var(--primary-color);
-  color: var(--white);
   text-align: center;
-  padding: 1.5rem 0;
-  margin-top: 2rem;
-}
-
-footer p {
-  margin: 0;
-  font-size: 0.9rem;
+  padding: 20px;
+  background-color: #002060;
+  color: white;
+  margin-top: 30px;
 }
 
 .instagram-link {
-  display: inline-block;
-  margin-top: 0.5rem;
-  color: var(--white);
+  color: white;
   text-decoration: none;
-  font-weight: 600;
-  transition: var(--transition);
-  will-change: color;
 }
 
 .instagram-link:hover {
-  color: var(--secondary-color);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .federation-choice {
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
-  .category-buttons {
-    gap: 0.7rem;
-  }
-  .category-btn {
-    width: 100px;
-    height: 70px;
-  }
+  text-decoration: underline;
 }
