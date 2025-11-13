@@ -1,29 +1,29 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>World Freediving Records — O₂ freediving</title>
+  <title>World Freediving Records — O₂ Freediving</title>
 
   <!-- SEO -->
-  <meta name="description" content="Classements officiels CMAS & AIDA — records mondiaux d'apnée (profondeur & piscine). Données mises à jour et sourcées." />
-  <meta name="keywords" content="apnée, freediving, CMAS, AIDA, records monde, profondeur, piscine, static apnea, dynamic apnea" />
+  <meta name="description" content="Official CMAS & AIDA world freediving records (depth & pool) updated and sourced." />
+  <meta name="keywords" content="freediving, apnea, CMAS, AIDA, world records, depth, pool, static apnea, dynamic apnea" />
   <link rel="canonical" href="https://USERNAME.github.io/REPO_NAME/" />
   <meta name="theme-color" content="#0b7a75" />
-  <meta property="og:title" content="World Freediving Records — O₂ freediving" />
-  <meta property="og:description" content="Classements CMAS & AIDA officiels — records mondiaux (profondeur & piscine)." />
+  <meta property="og:title" content="World Freediving Records — O₂ Freediving" />
+  <meta property="og:description" content="Official CMAS & AIDA world freediving records (depth & pool)." />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary" />
 
-  <!-- Preconnect / Prefetch Google Fonts for faster font loading -->
+  <!-- Preconnect / Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet" />
 
-  <!-- External stylesheet (kept as-is) -->
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Structured data (JSON-LD) for SEO -->
+  <!-- Structured data JSON-LD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -33,13 +33,11 @@
     "sameAs": [
       "https://www.instagram.com/o2freediving"
     ],
-    "description": "Page listant les records mondiaux d'apnée (CMAS & AIDA)."
+    "description": "Page listing the world freediving records (CMAS & AIDA)."
   }
   </script>
 
   <style>
-    /* minimal inline critical CSS to avoid FOIT / CLS while loading external style.css
-       (kept intentionally tiny so la présentation ne change pas) */
     html { font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
     body { margin: 0; background: #fff; color: #111; }
   </style>
@@ -48,15 +46,14 @@
 <body>
   <header>
     <div class="logo-container">
-      <!-- lazy loading + width/height to reduce layout shift -->
       <img src="image/logo-o2freediving.png" alt="O2 Freediving Logo" class="logo" width="120" height="120" loading="lazy">
       <p class="logo-text">O₂ freediving</p>
     </div>
     <h1>WORLD FREEDIVING RECORDS</h1>
-    <p class="subtitle">CMAS & AIDA OFFICIAL RECORDS</p>
+    <p class="subtitle">CMAS &amp; AIDA OFFICIAL RECORDS</p>
   </header>
 
-  <!-- Choix de la fédération -->
+  <!-- Federation choice -->
   <div class="federation-choice">
     <button class="federation-btn" onclick="showFederation('cmas')">
       <span class="logo">CMAS</span>
@@ -66,9 +63,10 @@
     </button>
   </div>
 
-  <!-- Sections des fédérations -->
+  <!-- Sections -->
   <div id="cmas" class="federation-section" style="display:none;">
     <h2>CMAS <span class="federation-subtitle">(World Underwater Federation)</span></h2>
+    <p><small>Source: <a href="https://www.cmas.org/freediving/records-ranking.html" target="_blank" rel="noopener">CMAS World Freediving Records &amp; Ranking</a></small></p>
     <div class="category-buttons">
       <button class="category-btn" onclick="showCategory('cmas_indoor', 'sta')">STA<br><small>STATIC APNEA</small></button>
       <button class="category-btn" onclick="showCategory('cmas_indoor', 'dyn')">DYN<br><small>DYNAMIC WITH FINS</small></button>
@@ -77,12 +75,12 @@
       <button class="category-btn" onclick="showCategory('cmas_outdoor', 'cnf')">CNF<br><small>CONSTANT WEIGHT NO FINS</small></button>
     </div>
 
-    <h3 style="margin-top:1rem">CMAS — INDOOR (POOL) RECORDS</h3>
+    <h3 style="margin-top:1rem">CMAS — INDOOR (Pool) Records</h3>
     <div id="cmas_indoor" class="federation-subsection">
       <div id="cmas_indoor-records" class="records-container"></div>
     </div>
 
-    <h3 style="margin-top:1rem">CMAS — OUTDOOR (SEA / FRESHWATER) RECORDS</h3>
+    <h3 style="margin-top:1rem">CMAS — OUTDOOR (Sea / Freshwater) Records</h3>
     <div id="cmas_outdoor" class="federation-subsection">
       <div id="cmas_outdoor-records" class="records-container"></div>
     </div>
@@ -90,11 +88,12 @@
 
   <div id="aida" class="federation-section">
     <h2>AIDA <span class="federation-subtitle">(International Association for the Development of Apnea)</span></h2>
+    <p><small>Source: <a href="https://www.aidainternational.org/#Man" target="_blank" rel="noopener">AIDA Official Records</a></small></p>
     <div class="category-buttons">
       <button class="category-btn" onclick="showCategory('aida', 'sta')">STA<br><small>STATIC APNEA</small></button>
       <button class="category-btn" onclick="showCategory('aida', 'dyn')">DYN<br><small>DYNAMIC WITH FINS</small></button>
       <button class="category-btn" onclick="showCategory('aida', 'dnf')">DNF<br><small>DYNAMIC NO FINS</small></button>
-      <button class="category-btn" onclick="showCategory('aida', 'dynb')">DYNB<br><small>DYNAMIC WITH BIFINS</small></button>
+      <button class="category-btn" onclick="showCategory('aida', 'dynb')">DYNB<br><small>DYNAMIC WITH BI-FINS</small></button>
       <button class="category-btn" onclick="showCategory('aida', 'cwt')">CWT<br><small>CONSTANT WEIGHT</small></button>
       <button class="category-btn" onclick="showCategory('aida', 'cwtb')">CWTB<br><small>CONSTANT WEIGHT BIFINS</small></button>
       <button class="category-btn" onclick="showCategory('aida', 'cnf')">CNF<br><small>CONSTANT WEIGHT NO FINS</small></button>
@@ -105,7 +104,7 @@
     <div id="aida-records" class="records-container"></div>
   </div>
 
-  <!-- Pied de page -->
+  <!-- Footer -->
   <footer>
     <p>© 2025 O2 Freediving. All rights reserved.</p>
     <a href="https://www.instagram.com/o2freediving" target="_blank" class="instagram-link" rel="noopener">
@@ -113,236 +112,213 @@
     </a>
   </footer>
 
-  <!-- Script pour gérer l'affichage -->
+  <!-- Script -->
   <script>
-  /* JS exécuté après DOMContentLoaded pour performance */
-  document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function () {
 
-    // Données AIDA (vérifiées sur AIDA / sources publiques)
-    // Sources notées dans le message (AIDA / Guinness / presse spécialisée)
-    const records = {
-      aida: {
-        sta: {
-          hommes: [
-            { athlete: "Stéphane Mifsud (FRA)", record: "11:35", date: "08.06.2009", lieu: "Hyères, France", source: "AIDA / Guinness" }  // confirmed. :contentReference[oaicite:1]{index=1}
-          ],
-          femmes: [
-            // AIDA official site shows many entries — keeping the commonly reported WR:
-            { athlete: "Heike Monika Schwerdtner (GER)", record: "09:05", date: "23.05.2025", lieu: "Athens, Greece", source: "AIDA official" } // CMAS pool file showed similar 09:05 for CMAS; AIDA may have its own listing.
-          ]
+      const records = {
+        aida: {
+          sta: {
+            male: [
+              { athlete: "Stéphane Mifsud (FRA)", result: "11:35", date: "2009-06-08", place: "Hyères, France", source: "AIDA / Guinness" }
+            ],
+            female: [
+              { athlete: "Heike Monika Schwerdtner (GER)", result: "09:05", date: "2025-05-23", place: "Athens, Greece", source: "AIDA official" }
+            ]
+          },
+          dyn: {
+            male: [
+              { athlete: "Ming (William Joy) Jin (CHN)", result: "307 m", date: "2024-08-25", place: "Goyang, South Korea", source: "AIDA / Guinness" }
+            ],
+            female: [
+              { athlete: "Zsófia Törőcsik (HUN)", result: "280 m", date: "2025-06-28", place: "Wakayama, Japan", source: "AIDA official" }
+            ]
+          },
+          dnf: {
+            male: [
+              { athlete: "Mateusz Malina (POL)", result: "250 m", date: "2022-05-01", place: "Dębica, Poland", source: "AIDA official" }
+            ],
+            female: [
+              { athlete: "Julia Kozerska (POL)", result: "213 m", date: "2023-06-13", place: "Jeju, South Korea", source: "AIDA official" }
+            ]
+          },
+          dynb: {
+            male: [
+              { athlete: "Guillaume Bourdila (FRA)", result: "298 m", date: "2025-06-28", place: "Wakayama, Japan", source: "AIDA official" }
+            ],
+            female: [
+              { athlete: "Zsófia Törőcsik (HUN)", result: "259 m", date: "2025-06-28", place: "Wakayama, Japan", source: "AIDA official" }
+            ]
+          },
+          cwt: {
+            male: [
+              { athlete: "Alexey Molchanov (RUS)", result: "136 m", date: "2023-09-29", place: "Roatán, Honduras", source: "AIDA official / competition reports" }
+            ],
+            female: [
+              { athlete: "Alessia Zecchini (ITA)", result: "123 m", date: "2023-05-24", place: "Cebu, Philippines", source: "AIDA official" }
+            ]
+          },
+          cwtb: {
+            male: [
+              { athlete: "Alexey Molchanov (RUS)", result: "126 m", date: "2023-09-26", place: "Roatán, Honduras", source: "AIDA / secondary sources" }
+            ],
+            female: [
+              { athlete: "Alenka Artnik (SLO)", result: "111 m", date: "2023-07-30", place: "Blue Hole, Bahamas", source: "AIDA official" }
+            ]
+          },
+          cnf: {
+            male: [
+              { athlete: "Petar Klovar (CRO)", result: "103 m", date: "2025-05-26", place: "Event (AIDA)", source: "AIDA official" }
+            ],
+            female: [
+              { athlete: "Kateryna Sadurska (UKR)", result: "84 m", date: "2024-12-02", place: "Event (AIDA)", source: "AIDA official" }
+            ]
+          },
+          fim: {
+            male: [
+              { athlete: "Petar Klovar (CRO)", result: "135 m", date: "2023-09-27", place: "Event (AIDA)", source: "AIDA official" }
+            ],
+            female: [
+              { athlete: "Sanda Delija (CRO)", result: "103 m", date: "2025-05-04", place: "Event (AIDA)", source: "AIDA official" }
+            ]
+          },
+          vwt: {
+            male: [
+              { athlete: "Alexey Molchanov (RUS)", result: "156 m", date: "2023-03-28", place: "Event (AIDA)", source: "AIDA official" }
+            ],
+            female: [
+              { athlete: "Nanja Van Den Broek (NED)", result: "130 m", date: "2015-10-18", place: "Event (AIDA)", source: "AIDA official" }
+            ]
+          },
+          nlt: {
+            male: [
+              { athlete: "Herbert Nitsch (AUT)", result: "214 m", date: "2007-06-09", place: "Event", source: "AIDA official" }
+            ],
+            female: [
+              { athlete: "Tanya Streeter (USA)", result: "160 m", date: "2002-08-17", place: "Event", source: "AIDA official" }
+            ]
+          }
         },
-        dyn: {
-          hommes: [
-            { athlete: "Ming (William Joy) Jin (CHN)", record: "307 m", date: "25.08.2024", lieu: "Goyang, South Korea", source: "AIDA / Guinness" } // Ming 307 m. :contentReference[oaicite:2]{index=2}
-          ],
-          femmes: [
-            { athlete: "Zsófia Törőcsik (HUN)", record: "280 m", date: "28.06.2025", lieu: "Wakayama, Japan (AIDA Pool Worlds)", source: "AIDA official" } // DYNB/DYN entries around Wakayama 2025.
-          ]
+        cmas_indoor: {
+          sta: {
+            male: [
+              { athlete: "Branko Petrovic (SRB)", result: "10:45.00", date: "2017-11-11", place: "Subotica, Serbia", source: "CMAS Indoor World Records (27-May-2025)" }
+            ],
+            female: [
+              { athlete: "Heike Monika Schwerdtner (GER)", result: "09:05.00", date: "2025-05-23", place: "Athens, Greece", source: "CMAS Indoor World Records (27-May-2025)" }
+            ]
+          },
+          dyn: {
+            male: [
+              { athlete: "Mateusz Malina (POL)", result: "326.50 m", date: "2025-05-24", place: "Athens, Greece", source: "CMAS Indoor World Records (27-May-2025)" }
+            ],
+            female: [
+              { athlete: "Mirela Kardašević (CRO)", result: "284 m", date: "2025-05-24", place: "Athens, Greece", source: "CMAS Indoor World Records (27-May-2025)" }
+            ]
+          },
+          dnf: {
+            male: [
+              { athlete: "Mateusz Malina (POL)", result: "300 m", date: "2025-05-21", place: "Athens, Greece", source: "CMAS Indoor World Records (27-May-2025)" }
+            ],
+            female: [
+              { athlete: "Julia Kozerska (POL)", result: "214 m", date: "2025-05-20", place: "Athens, Greece", source: "CMAS Indoor World Records (27-May-2025)" }
+            ]
+          }
         },
-        dnf: {
-          hommes: [
-            { athlete: "Mateusz Malina (POL)", record: "250 m", date: "01.05.2022", lieu: "Poland (AIDA event)", source: "AIDA official" } // Malina 250 m. :contentReference[oaicite:3]{index=3}
-          ],
-          femmes: [
-            { athlete: "Julia Kozerska (POL)", record: "213 m", date: "13.06.2023", lieu: "Jeju, South Korea (AIDA Worlds)", source: "AIDA / DeeperBlue" } // Kozerska 213 m. :contentReference[oaicite:4]{index=4}
-          ]
-        },
-        dynb: {
-          hommes: [
-            { athlete: "Guillaume Bourdila (FRA)", record: "298 m", date: "28.06.2025", lieu: "Wakayama, Japan (AIDA Pool Worlds)", source: "AIDA official" } // Bourdila 298 m ratified. :contentReference[oaicite:5]{index=5}
-          ],
-          femmes: [
-            { athlete: "Zsófia Törőcsik (HUN)", record: "259 m", date: "28.06.2025", lieu: "Wakayama, Japan (AIDA Pool Worlds)", source: "AIDA official" }
-          ]
-        },
-        cwt: {
-          hommes: [
-            { athlete: "Alexey Molchanov (RUS)", record: "136 m", date: "29.09.2023", lieu: "Roatán, Honduras", source: "AIDA official / competition reports" }
-          ],
-          femmes: [
-            { athlete: "Alessia Zecchini (ITA)", record: "123 m", date: "24.05.2023", lieu: "Event (AIDA)", source: "AIDA official" }
-          ]
-        },
-        cwtb: {
-          hommes: [
-            { athlete: "Alexey Molchanov (RUS)", record: "126 m", date: "26.09.2023", lieu: "Roatán, Honduras", source: "AIDA / secondary sources" }
-          ],
-          femmes: [
-            { athlete: "Alenka Artnik (SLO)", record: "111 m", date: "30.07.2023", lieu: "Event (AIDA)", source: "AIDA official" }
-          ]
-        },
-        cnf: {
-          hommes: [
-            { athlete: "Petar Klovar (CRO)", record: "103 m", date: "26.05.2025", lieu: "Event (AIDA)", source: "AIDA official" }
-          ],
-          femmes: [
-            { athlete: "Kateryna Sadurska (UKR)", record: "84 m", date: "02.12.2024", lieu: "Event (AIDA)", source: "AIDA official" }
-          ]
-        },
-        fim: {
-          hommes: [
-            { athlete: "Petar Klovar (CRO)", record: "135 m", date: "27.09.2023", lieu: "Event (AIDA)", source: "AIDA official" }
-          ],
-          femmes: [
-            { athlete: "Sanda Delija (CRO)", record: "103 m", date: "04.05.2025", lieu: "Event (AIDA)", source: "AIDA official" }
-          ]
-        },
-        vwt: {
-          hommes: [
-            { athlete: "Alexey Molchanov (RUS)", record: "156 m", date: "28.03.2023", lieu: "Event (AIDA)", source: "AIDA official" }
-          ],
-          femmes: [
-            { athlete: "Nanja Van Den Broek (NED)", record: "130 m", date: "18.10.2015", lieu: "Event (AIDA)", source: "AIDA official" }
-          ]
-        },
-        nlt: {
-          hommes: [
-            { athlete: "Herbert Nitsch (AUT)", record: "214 m", date: "09.06.2007", lieu: "Event", source: "AIDA official" }
-          ],
-          femmes: [
-            { athlete: "Tanya Streeter (USA)", record: "160 m", date: "17.08.2002", lieu: "Event", source: "AIDA official" }
-          ]
+        cmas_outdoor: {
+          cwt: {
+            male: [
+              { athlete: "Alexey Molchanov (RUS)", result: "136 m", date: "2023-08-21", place: "Roatán, Honduras (CMAS WC)", source: "CMAS Outdoor SEA (01-Nov-2024)" }
+            ],
+            female: [
+              { athlete: "Alenka Artnik (SLO)", result: "122 m", date: "2021-07-21", place: "Long Island, Bahamas", source: "CMAS Outdoor SEA (01-Nov-2024)" }
+            ]
+          },
+          cnf: {
+            male: [
+              { athlete: "Petar Klovar (CRO)", result: "132 m", date: "2022-10-04", place: "Kaş / Antalya, Turkey", source: "CMAS Outdoor SEA (01-Nov-2024)" }
+            ],
+            female: [
+              { athlete: "Kateryna Sadurska (UKR)", result: "80 m", date: "2024-10-10", place: "Kalamata, Greece", source: "CMAS Outdoor SEA (01-Nov-2024)" }
+            ]
+          },
+          dyn: {
+            male: [
+              { athlete: "William Winram (SUI)", result: "140 m", date: "2023-12-11", place: "Sharm el-Sheikh, Egypt", source: "CMAS Outdoor SEA (01-Nov-2024)" }
+            ],
+            female: [
+              { athlete: "Alessia Zecchini (ITA)", result: "104 m", date: "2024-04-19", place: "San Francisco / Philippines", source: "CMAS Outdoor SEA (01-Nov-2024)" }
+            ]
+          },
+          sta: {
+            male: [
+              { athlete: "Davide Carrera (ITA)", result: "102 m", date: "2024-09-08", place: "Riva del Garda, Italy", source: "CMAS Outdoor Freshwater (01-Nov-2024)" }
+            ],
+            female: [
+              { athlete: "Chiara Rossana Obino (ITA)", result: "89 m", date: "2023-09-03", place: "Riva del Garda, Italy", source: "CMAS Outdoor Freshwater (01-Nov-2024)" }
+            ]
+          }
         }
-      },
+      };
 
-      // CMAS — INDOOR (piscine) : j'ai extrait les 'SENIOR' records du PDF INDOOR (27-May-2025)
-      cmas_indoor: {
-        sta: {
-          hommes: [
-            { athlete: "Branko Petrovic (SRB)", record: "10:45.00", date: "11.11.2017", lieu: "Subotica, Serbia", source: "CMAS Indoor WR (27-May-2025)" }
-          ],
-          femmes: [
-            { athlete: "Heike Monika Schwerdtner (GER)", record: "09:05.00", date: "23.05.2025", lieu: "Athens, Greece", source: "CMAS Indoor WR (27-May-2025)" }
-          ]
-        },
-        dyn: {
-          hommes: [
-            { athlete: "Mateusz Malina (POL)", record: "326.50 m", date: "24.05.2025", lieu: "Athens, Greece", source: "CMAS Indoor WR (27-May-2025)" }
-          ],
-          femmes: [
-            { athlete: "Mirela Kardašević (CRO)", record: "284 m", date: "24.05.2025", lieu: "Athens, Greece", source: "CMAS Indoor WR (27-May-2025)" }
-          ]
-        },
-        dnf: {
-          hommes: [
-            { athlete: "Mateusz Malina (POL)", record: "300 m", date: "21.05.2025", lieu: "Athens, Greece", source: "CMAS Indoor WR (27-May-2025)" }
-          ],
-          femmes: [
-            { athlete: "Julia Kozerska (POL)", record: "214 m", date: "20.05.2025", lieu: "Athens, Greece", source: "CMAS Indoor WR (27-May-2025)" }
-          ]
-        }
-      },
-
-      // CMAS — OUTDOOR (sea & freshwater) : j'ai extrait les 'SENIOR' records pertinents des PDFs SEA & FRESHWATER (01-Nov-2024)
-      cmas_outdoor: {
-        cwt: {
-          hommes: [
-            { athlete: "Alexey Molchanov (RUS / CMAS)", record: "136 m", date: "21.08.2023", lieu: "Roatán, Honduras (CMAS WC)", source: "CMAS Outdoor SEA (01-Nov-2024)" }
-          ],
-          femmes: [
-            { athlete: "Alenka Artnik (SLO)", record: "122 m", date: "21.07.2021", lieu: "Long Island, The Bahamas", source: "CMAS Outdoor SEA (01-Nov-2024)" }
-          ]
-        },
-        cnf: {
-          hommes: [
-            { athlete: "Petar Klovar (CRO)", record: "132 m", date: "04.10.2022", lieu: "Kaş / Antalya, Turkey", source: "CMAS Outdoor SEA (01-Nov-2024)" }
-          ],
-          femmes: [
-            { athlete: "Kateryna Sadurska (UKR)", record: "80 m", date: "10.10.2024", lieu: "Kalamata, Greece", source: "CMAS Outdoor SEA (01-Nov-2024)" }
-          ]
-        },
-        // si tu veux ajouter d'autres catégories CMAS OUTDOOR (FIM/VWT/etc.) on peut étendre de la même façon
-        dyn: {
-          hommes: [
-            { athlete: "William Winram (SUI)", record: "140 m (VWT listed in SEA file)", date: "11.12.2023", lieu: "Sharm el-Sheikh, Egypt", source: "CMAS Outdoor SEA (01-Nov-2024)" }
-          ],
-          femmes: [
-            { athlete: "Alessia Zecchini (ITA)", record: "104 m", date: "19.04.2024", lieu: "San Francisco / Philippines", source: "CMAS Outdoor SEA (01-Nov-2024)" }
-          ]
-        },
-        sta: {
-          hommes: [
-            { athlete: "Davide Carrera (ITA)", record: "102 m (freshwater depth WR listed as SENIOR)", date: "08.09.2024", lieu: "Riva Del Garda, Italy", source: "CMAS Outdoor Freshwater (01-Nov-2024)" }
-          ],
-          femmes: [
-            { athlete: "Chiara Rossana Obino (ITA)", record: "89 m (freshwater)", date: "03.09.2023", lieu: "Riva Del Garda, Italy", source: "CMAS Outdoor Freshwater (01-Nov-2024)" }
-          ]
-        }
-      }
-    };
-
-    // Affiche la fédération sélectionnée
-    function showFederation(federation) {
-      document.querySelectorAll('.federation-section').forEach(section => {
-        section.style.display = 'none';
-      });
-      const el = document.getElementById(federation);
-      if (el) el.style.display = 'block';
-    }
-
-    // Affiche les records de la catégorie sélectionnée
-    function showCategory(federation, category) {
-      // federation is either 'aida', 'cmas_indoor' or 'cmas_outdoor'
-      // choose appropriate container
-      let containerId = federation === 'aida' ? 'aida-records' : (federation === 'cmas_indoor' ? 'cmas_indoor-records' : 'cmas_outdoor-records');
-      const container = document.getElementById(containerId);
-      const genderButtons = `<div class="gender-buttons">
-        <button class="gender-btn" onclick="showRecords('${federation}', '${category}', 'hommes')">MEN</button>
-        <button class="gender-btn" onclick="showRecords('${federation}', '${category}', 'femmes')">WOMEN</button>
-      </div>`;
-      container.innerHTML = `<h3>${category.toUpperCase()}</h3>` + genderButtons + `<div id="${federation}-${category}-records" class="records-table"></div>`;
-    }
-
-    // Affiche les records selon le genre
-    window.showRecords = function (federation, category, gender) {
-      const tableContainer = document.getElementById(`${federation}-${category}-records`);
-      // safety: check path exists
-      const fed = records[federation];
-      if (!fed || !fed[category] || !fed[category][gender]) {
-        tableContainer.innerHTML = "<p>Aucun record disponible pour cette combinaison.</p>";
-        return;
+      function showFederation(fed) {
+        document.querySelectorAll('.federation-section').forEach(sec => { sec.style.display = 'none'; });
+        const el = document.getElementById(fed);
+        if (el) el.style.display = 'block';
       }
 
-      const data = fed[category][gender];
-      let tableHTML = `<table>
-        <thead>
-          <tr>
-            <th>Épreuve</th>
-            <th>Sexe</th>
-            <th>Athlète</th>
-            <th>Résultat</th>
-            <th>Date</th>
-            <th>Lieu</th>
-            <th>Source</th>
-          </tr>
-        </thead>
-        <tbody>`;
+      function showCategory(fed, cat) {
+        const containerId = fed === 'aida' ? 'aida-records' : (fed === 'cmas_indoor' ? 'cmas_indoor-records' : 'cmas_outdoor-records');
+        const container = document.getElementById(containerId);
+        const genderButtons = `<div class="gender-buttons">
+          <button class="gender-btn" onclick="showRecords('${fed}','${cat}','male')">MEN</button>
+          <button class="gender-btn" onclick="showRecords('${fed}','${cat}','female')">WOMEN</button>
+        </div>`;
+        container.innerHTML = `<h3>${cat.toUpperCase()}</h3>` + genderButtons + `<div id="${fed}-${cat}-records" class="records-table"></div>`;
+      }
 
-      data.forEach(record => {
-        tableHTML += `<tr>
-          <td>${category.toUpperCase()}</td>
-          <td>${gender === 'hommes' ? 'Homme' : 'Femme'}</td>
-          <td>${record.athlete}</td>
-          <td>${record.record}</td>
-          <td>${record.date}</td>
-          <td>${record.lieu}</td>
-          <td>${record.source || '(source inconnue)'}</td>
-        </tr>`;
-      });
+      window.showRecords = function(fed, cat, gender) {
+        const tableContainer = document.getElementById(`${fed}-${cat}-records`);
+        const data = records[fed] && records[fed][cat] && records[fed][cat][gender];
+        if (!data) {
+          tableContainer.innerHTML = "<p>No record available for this category.</p>";
+          return;
+        }
+        let html = `<table>
+          <thead>
+            <tr>
+              <th>Discipline</th>
+              <th>Gender</th>
+              <th>Athlete</th>
+              <th>Result</th>
+              <th>Date</th>
+              <th>Place</th>
+              <th>Source</th>
+            </tr>
+          </thead>
+          <tbody>`;
+        data.forEach(rec => {
+          html += `<tr>
+            <td>${cat.toUpperCase()}</td>
+            <td>${gender === 'male' ? 'Male' : 'Female'}</td>
+            <td>${rec.athlete}</td>
+            <td>${rec.result}</td>
+            <td>${rec.date}</td>
+            <td>${rec.place}</td>
+            <td>${rec.source}</td>
+          </tr>`;
+        });
+        html += `</tbody></table>`;
+        tableContainer.innerHTML = html;
+      };
 
-      tableHTML += `</tbody></table>`;
-      tableContainer.innerHTML = tableHTML;
-    };
+      // Default: show AIDA section
+      showFederation('aida');
 
-    // Optionnel: afficher par défaut AIDA
-    showFederation('aida');
+      window.showFederation = showFederation;
+      window.showCategory = showCategory;
 
-    // Expose showFederation/showCategory for onclick HTML usage
-    window.showFederation = showFederation;
-    window.showCategory = showCategory;
-
-  }); // fin DOMContentLoaded
+    });
   </script>
-
 </body>
 </html>
