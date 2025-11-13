@@ -1,219 +1,264 @@
-/* Police moderne */
-body {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f9fa;
-    color: #333;
+:root {
+  --primary-color: #002060;
+  --secondary-color: #FF0000;
+  --light-bg: #f8f9fa;
+  --text-color: #333;
+  --white: #fff;
+  --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --border-radius: 10px;
+  --transition: all 0.3s ease;
 }
 
-/* En-tête avec logo et texte */
+/* Réinitialisation et base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--light-bg);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* En-tête */
 header {
-    background: linear-gradient(135deg, #002060, #FF0000);
-    color: white;
-    text-align: center;
-    padding: 1rem 0;
-    margin-bottom: 2rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: var(--white);
+  text-align: center;
+  padding: 2rem 0;
+  margin-bottom: 2rem;
 }
 
 .logo-container {
-    margin-bottom: 1rem;
-    text-align: center;
+  margin-bottom: 1rem;
 }
 
 .logo {
-    max-width: 100px;
-    height: auto;
-    border-radius: 50%;
+  max-width: 120px;
+  height: auto;
+  border-radius: 50%;
+  will-change: transform;
+  transition: var(--transition);
+}
+
+.logo:hover {
+  transform: scale(1.05);
 }
 
 .logo-text {
-    color: white;
-    font-size: 0.8rem;
-    margin-top: 0.3rem;
-    font-weight: 300;
-    letter-spacing: 1px;
+  color: var(--white);
+  font-size: 0.8rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  margin-top: 0.5rem;
 }
 
 header h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin: 0;
-    letter-spacing: 2px;
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  font-weight: 700;
+  margin: 0.5rem 0;
+  letter-spacing: 2px;
 }
 
 .subtitle {
-    font-size: 1rem;
-    font-weight: 300;
-    letter-spacing: 3px;
-    opacity: 0.9;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 3px;
+  opacity: 0.9;
 }
 
-/* Boutons des fédérations */
+/* Boutons de fédération */
 .federation-choice {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
 }
 
 .federation-btn {
-    background: white;
-    color: #002060;
-    border: 3px solid #FF0000;
-    padding: 1rem 2rem;
-    font-size: 1.5rem;
-    font-weight: 600;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    width: 150px;
+  background: var(--white);
+  color: var(--primary-color);
+  border: 3px solid var(--secondary-color);
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: var(--transition);
+  min-width: 150px;
+  will-change: background, color;
 }
 
 .federation-btn:hover {
-    background: #FF0000;
-    color: white;
+  background: var(--secondary-color);
+  color: var(--white);
 }
 
 /* Sections des fédérations */
 .federation-section {
-    display: none;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  display: none;
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+  padding: 2rem;
+  background: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
 }
 
 .federation-section h2 {
-    color: #002060;
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
 }
 
 .federation-subtitle {
-    font-size: 0.9rem;
-    color: #666;
-    font-weight: 400;
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 1.5rem;
 }
 
-/* Boutons des catégories */
+/* Boutons de catégorie */
 .category-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    margin: 2rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
 }
 
 .category-btn {
-    background: #002060;
-    color: white;
-    border: none;
-    padding: 0.8rem 1.2rem;
-    font-size: 0.9rem;
-    font-weight: 600;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    width: 120px;
-    height: 80px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  background: var(--primary-color);
+  color: var(--white);
+  border: none;
+  padding: 0.8rem 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition);
+  width: 120px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  will-change: background;
 }
 
 .category-btn:hover {
-    background: #FF0000;
+  background: var(--secondary-color);
 }
 
 .category-btn small {
-    font-size: 0.7rem;
-    font-weight: 400;
-    text-align: center;
+  font-size: 0.7rem;
+  font-weight: 400;
+  text-align: center;
 }
 
 /* Boutons Homme/Femme */
 .gender-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0;
 }
 
 .gender-btn {
-    background: #FF0000;
-    color: white;
-    border: none;
-    padding: 0.8rem 1.5rem;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  background: var(--secondary-color);
+  color: var(--white);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: var(--transition);
+  will-change: background;
 }
 
 .gender-btn:hover {
-    background: #002060;
+  background: var(--primary-color);
 }
 
-/* Tableau des records */
+/* Tableaux des records */
 .records-table {
-    margin-top: 1rem;
-    overflow-x: auto;
+  margin-top: 1rem;
+  overflow-x: auto;
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1rem;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
 }
 
 th, td {
-    padding: 1rem;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
 }
 
 th {
-    background-color: #002060;
-    color: white;
-    font-weight: 600;
+  background-color: var(--primary-color);
+  color: var(--white);
+  font-weight: 600;
 }
 
 tr:nth-child(even) {
-    background-color: #f8f9fa;
+  background-color: var(--light-bg);
 }
 
 tr:hover {
-    background-color: #e9ecef;
+  background-color: #e9ecef;
 }
 
 /* Pied de page */
 footer {
-    background: #002060;
-    color: white;
-    text-align: center;
-    padding: 1.5rem 0;
-    margin-top: 2rem;
+  background: var(--primary-color);
+  color: var(--white);
+  text-align: center;
+  padding: 1.5rem 0;
+  margin-top: 2rem;
 }
 
 footer p {
-    margin: 0;
-    font-size: 0.9rem;
+  margin: 0;
+  font-size: 0.9rem;
 }
 
 .instagram-link {
-    display: inline-block;
-    margin-top: 0.5rem;
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease;
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+  will-change: color;
 }
 
 .instagram-link:hover {
-    color: #FF0000;
+  color: var(--secondary-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .federation-choice {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .category-buttons {
+    gap: 0.7rem;
+  }
+  .category-btn {
+    width: 100px;
+    height: 70px;
+  }
 }
