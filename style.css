@@ -21,7 +21,7 @@ header {
 }
 
 .logo {
-    max-width: 80px; /* Taille ajustée */
+    max-width: 60px; /* Taille ajustée */
     height: auto;
     border-radius: 50%; /* Conserve cette ligne si tu veux garder la forme ronde */
     /* Supprime ou commente la ligne suivante */
