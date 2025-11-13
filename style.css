@@ -21,7 +21,7 @@ header {
 }
 
 .logo {
-    max-width: 100px; /* Réduis cette valeur pour diminuer la largeur */
+    max-width: 80px; /* Réduis cette valeur pour diminuer la largeur */
     height: auto; /* La hauteur s'ajustera automatiquement */
     border-radius: 50%;
     border: 2px solid white; /* Optionnel : réduire aussi la bordure */
