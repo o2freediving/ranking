@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Freediving Records</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>WORLD FREEDIVING RECORDS</h1>
+        <p class="subtitle">CMAS & AIDA OFFICIAL RECORDS</p>
+    </header>
+
+    <!-- Choix de la fédération -->
+    <div class="federation-choice">
+        <button class="federation-btn" onclick="showFederation('cmas')">
+            <span class="logo">CMAS</span>
+        </button>
+        <button class="federation-btn" onclick="showFederation('aida')">
+            <span class="logo">AIDA</span>
+        </button>
+    </div>
+
+    <!-- Sections des fédérations -->
+    <div id="cmas" class="federation-section">
+        <h2>CMAS <span class="federation-subtitle">(World Underwater Federation)</span></h2>
+        <div class="category-buttons">
+            <button class="category-btn" onclick="showCategory('cmas', 'sta')">STA<br><small>STATIC APNEA</small></button>
+            <button class="category-btn" onclick="showCategory('cmas', 'dyn')">DYN<br><small>DYNAMIC WITH FINS</small></button>
+            <button class="category-btn" onclick="showCategory('cmas', 'dynb')">DYNB<br><small>DYNAMIC NO FINS</small></button>
+            <button class="category-btn" onclick="showCategory('cmas', 'cwt')">CWT<br><small>CONSTANT WEIGHT</small></button>
+            <button class="category-btn" onclick="showCategory('cmas', 'cwtb')">CWTB<br><small>CONSTANT WEIGHT NO FINS</small></button>
+        </div>
+        <div id="cmas-records" class="records-container"></div>
+    </div>
+
+    <div id="aida" class="federation-section">
+        <h2>AIDA <span class="federation-subtitle">(International Association for the Development of Apnea)</span></h2>
+        <div class="category-buttons">
+            <button class="category-btn" onclick="showCategory('aida', 'sta')">STA<br><small>STATIC APNEA</small></button>
+            <button class="category-btn" onclick="showCategory('aida', 'dyn')">DYN<br><small>DYNAMIC WITH FINS</small></button>
+            <button class="category-btn" onclick="showCategory('aida', 'dnf')">DNF<br><small>DYNAMIC NO FINS</small></button>
+            <button class="category-btn" onclick="showCategory('aida', 'cwt')">CWT<br><small>CONSTANT WEIGHT</small></button>
+            <button class="category-btn" onclick="showCategory('aida', 'cwtb')">CWTB<br><small>CONSTANT WEIGHT NO FINS</small></button>
+            <button class="category-btn" onclick="showCategory('aida', 'fim')">FIM<br><small>FREE IMMERSION</small></button>
+            <button class="category-btn" onclick="showCategory('aida', 'cnf')">CNF<br><small>CONSTANT WEIGHT NO FINS</small></button>
+        </div>
+        <div id="aida-records" class="records-container"></div>
+    </div>
+
+    <!-- Script pour gérer l'affichage -->
+    <script>
+        // Données des records (exemples)
+        const records = {
+            cmas: {
+                sta: {
+                    hommes: [
+                        { athlete: "Arnaud Jérald", record: "11:35", year: "2023" },
+                        // Ajoute d'autres records
+                    ],
+                    femmes: [
+                        { athlete: "Natalia Molchanova", record: "9:02", year: "2009" },
+                        // Ajoute d'autres records
+                    ]
+                },
+                dyn: {
+                    hommes: [
+                        { athlete: "Mateusz Malina", record: "330 m", year: "2023" },
+                        // Ajoute d'autres records
+                    ],
+                    femmes: [
+                        { athlete: "Magdalena Solich-Talanda", record: "280 m", year: "2022" },
+                        // Ajoute d'autres records
+                    ]
+                },
+                // Ajoute d'autres catégories
+            },
+            aida: {
+                sta: {
+                    hommes: [
+                        { athlete: "Branko Petrović", record: "11:54", year: "2024" },
+                        // Ajoute d'autres records
+                    ],
+                    femmes: [
+                        { athlete: "Natalia Molchanova", record: "9:07", year: "2011" },
+                        // Ajoute d'autres records
+                    ]
+                },
+                dyn: {
+                    hommes: [
+                        { athlete: "Mateusz Malina", record: "330 m", year: "2023" },
+                        // Ajoute d'autres records
+                    ],
+                    femmes: [
+                        { athlete: "Magdalena Solich-Talanda", record: "280 m", year: "2022" },
+                        // Ajoute d'autres records
+                    ]
+                },
+                // Ajoute d'autres catégories
+            }
+        };
+
+        // Affiche la fédération sélectionnée
+        function showFederation(federation) {
+            document.querySelectorAll('.federation-section').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(federation).style.display = 'block';
+        }
+
+        // Affiche les records de la catégorie sélectionnée
+        function showCategory(federation, category) {
+            const container = document.getElementById(`${federation}-records`);
+            const genderButtons = `
+                <div class="gender-buttons">
+                    <button class="gender-btn" onclick="showRecords('${federation}', '${category}', 'hommes')">MEN</button>
+                    <button class="gender-btn" onclick="showRecords('${federation}', '${category}', 'femmes')">WOMEN</button>
+                </div>
+            `;
+            container.innerHTML = `
+                <h3>${category.toUpperCase()}</h3>
+                ${genderButtons}
+                <div id="${federation}-${category}-records" class="records-table"></div>
+            `;
+        }
+
+        // Affiche les records selon le genre
+        function showRecords(federation, category, gender) {
+            const tableContainer = document.getElementById(`${federation}-${category}-records`);
+            const data = records[federation][category][gender];
+            let tableHTML = `
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Athlete</th>
+                            <th>Record</th>
+                            <th>Year</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+            data.forEach(record => {
+                tableHTML += `
+                    <tr>
+                        <td>${record.athlete}</td>
+                        <td>${record.record}</td>
+                        <td>${record.year}</td>
+                    </tr>
+                `;
+            });
+            tableHTML += `
+                    </tbody>
+                </table>
+            `;
+            tableContainer.innerHTML = tableHTML;
+        }
+    </script>
+</body>
+</html>
