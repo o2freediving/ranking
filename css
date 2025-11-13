@@ -1,0 +1,178 @@
+/* Police moderne */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* En-tête */
+header {
+    background: linear-gradient(135deg, #002060, #FF0000);
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 3px;
+    opacity: 0.9;
+}
+
+/* Boutons des fédérations */
+.federation-choice {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.federation-btn {
+    background: white;
+    color: #002060;
+    border: 3px solid #FF0000;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 150px;
+}
+
+.federation-btn:hover {
+    background: #FF0000;
+    color: white;
+}
+
+.federation-btn .logo {
+    display: block;
+    font-weight: 700;
+}
+
+/* Sections des fédérations */
+.federation-section {
+    display: none;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.federation-section h2 {
+    color: #002060;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.federation-subtitle {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 400;
+}
+
+/* Boutons des catégories */
+.category-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.category-btn {
+    background: #002060;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 120px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.category-btn:hover {
+    background: #FF0000;
+}
+
+.category-btn small {
+    font-size: 0.7rem;
+    font-weight: 400;
+    text-align: center;
+}
+
+/* Boutons Homme/Femme */
+.gender-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.gender-btn {
+    background: #FF0000;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.gender-btn:hover {
+    background: #002060;
+}
+
+/* Tableau des records */
+.records-table {
+    margin-top: 1rem;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #002060;
+    color: white;
+    font-weight: 600;
+}
+
+tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+tr:hover {
+    background-color: #e9ecef;
+}
