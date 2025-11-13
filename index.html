@@ -1,189 +1,365 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>World Freediving Records — O₂ Freediving</title>
-  <meta name="description" content="Official CMAS & AIDA world freediving records (depth & pool) updated and sourced." />
-  <meta name="keywords" content="freediving, apnea, CMAS, AIDA, world records, depth, pool, static apnea, dynamic apnea" />
-  <link rel="canonical" href="https://o2freediving.github.io/ranking/" />
-  <meta name="theme-color" content="#0b7a75" />
-  <meta property="og:title" content="World Freediving Records — O₂ Freediving" />
-  <meta property="og:description" content="Official CMAS & AIDA world freediving records (depth & pool)." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Records mondiaux officiels de plongée en apnée (CMAS & AIDA) en profondeur et en bassin." />
+  <meta name="keywords" content="apnée, plongée, records, CMAS, AIDA, static, dynamique, profondeur" />
+  <meta name="theme-color" content="#002060" />
+  <meta property="og:title" content="Records Mondiaux d'Apnée — O₂ Freediving" />
+  <meta property="og:description" content="Records officiels CMAS & AIDA en apnée (profondeur et bassin)." />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" /></noscript>
+  <title>Records Mondiaux d'Apnée — O₂ Freediving</title>
   <style>
-    html { font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
-    body { margin: 0; background: #fff; color: #111; }
+    :root {
+      --primary-color: #002060;
+      --secondary-color: #FF0000;
+      --light-bg: #f8f9fa;
+      --text-color: #333;
+      --white: #fff;
+      --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      --border-radius: 10px;
+      --transition: all 0.3s ease;
+    }
+    /* Réinitialisation et base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--light-bg);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+    /* En-tête */
+    header {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: var(--white);
+      text-align: center;
+      padding: 2rem 0;
+      margin-bottom: 2rem;
+    }
+    .logo-container {
+      margin-bottom: 1rem;
+    }
+    .logo {
+      max-width: 120px;
+      height: auto;
+      border-radius: 50%;
+      will-change: transform;
+      transition: var(--transition);
+    }
+    .logo:hover {
+      transform: scale(1.05);
+    }
+    .logo-text {
+      color: var(--white);
+      font-size: 0.8rem;
+      font-weight: 300;
+      letter-spacing: 1px;
+      margin-top: 0.5rem;
+    }
+    header h1 {
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
+      font-weight: 700;
+      margin: 0.5rem 0;
+      letter-spacing: 2px;
+    }
+    .subtitle {
+      font-size: 1rem;
+      font-weight: 300;
+      letter-spacing: 3px;
+      opacity: 0.9;
+    }
+    /* Boutons de fédération */
+    .federation-choice {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .federation-btn {
+      background: var(--white);
+      color: var(--primary-color);
+      border: 3px solid var(--secondary-color);
+      padding: 1rem 2rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: var(--transition);
+      min-width: 150px;
+      will-change: background, color;
+    }
+    .federation-btn:hover {
+      background: var(--secondary-color);
+      color: var(--white);
+    }
+    /* Sections des fédérations */
+    .federation-section {
+      display: none;
+      max-width: 1200px;
+      margin: 0 auto 2rem;
+      padding: 2rem;
+      background: var(--white);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+    }
+    .federation-section h2 {
+      color: var(--primary-color);
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    .federation-subtitle {
+      font-size: 0.9rem;
+      color: #666;
+      font-weight: 400;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    /* Boutons de catégorie */
+    .category-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .category-btn {
+      background: var(--primary-color);
+      color: var(--white);
+      border: none;
+      padding: 0.8rem 1.2rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: var(--transition);
+      width: 120px;
+      height: 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      will-change: background;
+    }
+    .category-btn:hover {
+      background: var(--secondary-color);
+    }
+    .category-btn small {
+      font-size: 0.7rem;
+      font-weight: 400;
+      text-align: center;
+    }
+    /* Boutons Homme/Femme */
+    .gender-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .gender-btn {
+      background: var(--secondary-color);
+      color: var(--white);
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: var(--transition);
+      will-change: background;
+    }
+    .gender-btn:hover {
+      background: var(--primary-color);
+    }
+    /* Tableaux des records */
+    .records-table {
+      margin-top: 1rem;
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    th, td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: var(--primary-color);
+      color: var(--white);
+      font-weight: 600;
+    }
+    tr:nth-child(even) {
+      background-color: var(--light-bg);
+    }
+    tr:hover {
+      background-color: #e9ecef;
+    }
+    /* Pied de page */
+    footer {
+      background: var(--primary-color);
+      color: var(--white);
+      text-align: center;
+      padding: 1.5rem 0;
+      margin-top: 2rem;
+    }
+    footer p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+    .instagram-link {
+      display: inline-block;
+      margin-top: 0.5rem;
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+      will-change: color;
+    }
+    .instagram-link:hover {
+      color: var(--secondary-color);
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+      .federation-choice {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+      .category-buttons {
+        gap: 0.7rem;
+      }
+      .category-btn {
+        width: 100px;
+        height: 70px;
+      }
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="logo-container">
-      <img src="image/logo-o2freediving.png" alt="O2 Freediving Logo" class="logo" width="120" height="120" loading="lazy">
+      <img src="image/logo-o2freediving.png" alt="Logo O₂ Freediving" class="logo" width="120" height="120" loading="lazy" />
       <p class="logo-text">O₂ freediving</p>
     </div>
-    <h1>WORLD FREEDIVING RECORDS</h1>
-    <p class="subtitle">CMAS &amp; AIDA OFFICIAL RECORDS</p>
+    <h1>RECORDS MONDIAUX D'APNÉE</h1>
+    <p class="subtitle">RECORDS OFFICIELS CMAS & AIDA</p>
   </header>
-  <div class="federation-choice">
-    <button class="federation-btn" onclick="showFederation('cmas')"><span class="logo">CMAS</span></button>
-    <button class="federation-btn" onclick="showFederation('aida')"><span class="logo">AIDA</span></button>
-  </div>
-  <div id="cmas" class="federation-section" style="display:none;">
-    <h2>CMAS <span class="federation-subtitle">(World Underwater Federation)</span></h2>
-    <p><small>Source: <a href="https://www.cmas.org/freediving/records-ranking.html" target="_blank" rel="noopener">CMAS World Freediving Records &amp; Ranking</a></small></p>
-    <div class="category-buttons">
-      <button class="category-btn" onclick="showCategory('cmas_indoor', 'sta')">STA<br><small>STATIC APNEA</small></button>
-      <button class="category-btn" onclick="showCategory('cmas_indoor', 'dyn')">DYN<br><small>DYNAMIC WITH FINS</small></button>
-      <button class="category-btn" onclick="showCategory('cmas_indoor', 'dnf')">DNF<br><small>DYNAMIC NO FINS</small></button>
-      <button class="category-btn" onclick="showCategory('cmas_outdoor', 'cwt')">CWT<br><small>CONSTANT WEIGHT</small></button>
-      <button class="category-btn" onclick="showCategory('cmas_outdoor', 'cwtb')">CWTB<br><small>CONSTANT WEIGHT BIFINS</small></button>
-      <button class="category-btn" onclick="showCategory('cmas_outdoor', 'cnf')">CNF<br><small>CONSTANT WEIGHT NO FINS</small></button>
-      <button class="category-btn" onclick="showCategory('cmas_outdoor', 'fim')">FIM<br><small>FREE IMMERSION</small></button>
+  <main>
+    <div class="federation-choice">
+      <button class="federation-btn" onclick="showFederation('cmas')" aria-label="Voir les records CMAS">CMAS</button>
+      <button class="federation-btn" onclick="showFederation('aida')" aria-label="Voir les records AIDA">AIDA</button>
     </div>
-    <h3>CMAS — INDOOR (Pool) Records</h3>
-    <div id="cmas_indoor" class="federation-subsection">
-      <div id="cmas_indoor-records" class="records-container"></div>
-    </div>
-    <h3>CMAS — OUTDOOR (Sea / Freshwater) Records</h3>
-    <div id="cmas_outdoor" class="federation-subsection">
-      <div id="cmas_outdoor-records" class="records-container"></div>
-    </div>
-  </div>
-  <div id="aida" class="federation-section">
-    <h2>AIDA <span class="federation-subtitle">(International Association for the Development of Apnea)</span></h2>
-    <p><small>Source: <a href="https://www.aidainternational.org/#Man" target="_blank" rel="noopener">AIDA Official Records</a></small></p>
-    <div class="category-buttons">
-      <button class="category-btn" onclick="showCategory('aida', 'sta')">STA<br><small>STATIC APNEA</small></button>
-      <button class="category-btn" onclick="showCategory('aida', 'dyn')">DYN<br><small>DYNAMIC WITH FINS</small></button>
-      <button class="category-btn" onclick="showCategory('aida', 'dnf')">DNF<br><small>DYNAMIC NO FINS</small></button>
-      <button class="category-btn" onclick="showCategory('aida', 'dynb')">DYNB<br><small>DYNAMIC WITH BI-FINS</small></button>
-      <button class="category-btn" onclick="showCategory('aida', 'cwt')">CWT<br><small>CONSTANT WEIGHT</small></button>
-      <button class="category-btn" onclick="showCategory('aida', 'cwtb')">CWTB<br><small>CONSTANT WEIGHT BIFINS</small></button>
-      <button class="category-btn" onclick="showCategory('aida', 'cnf')">CNF<br><small>CONSTANT WEIGHT NO FINS</small></button>
-      <button class="category-btn" onclick="showCategory('aida', 'fim')">FIM<br><small>FREE IMMERSION</small></button>
-      <button class="category-btn" onclick="showCategory('aida', 'vwt')">VWT<br><small>VARIABLE WEIGHT</small></button>
-      <button class="category-btn" onclick="showCategory('aida', 'nlt')">NLT<br><small>NO LIMIT</small></button>
-    </div>
-    <div id="aida-records" class="records-container"></div>
-  </div>
+    <section id="cmas" class="federation-section" style="display:none;">
+      <h2>CMAS <span class="federation-subtitle">(Fédération Mondiale des Activités Subaquatiques)</span></h2>
+      <p><small>Source : <a href="https://www.cmas.org/freediving/records-ranking.html" target="_blank" rel="noopener">Records CMAS</a></small></p>
+      <div class="category-buttons">
+        <button class="category-btn" onclick="showCategory('cmas_indoor', 'sta')" aria-label="Static Apnea"><span>STA</span><small>STATIC APNEA</small></button>
+        <button class="category-btn" onclick="showCategory('cmas_indoor', 'dyn')" aria-label="Dynamic With Fins"><span>DYN</span><small>DYNAMIC WITH FINS</small></button>
+        <button class="category-btn" onclick="showCategory('cmas_indoor', 'dnf')" aria-label="Dynamic No Fins"><span>DNF</span><small>DYNAMIC NO FINS</small></button>
+        <button class="category-btn" onclick="showCategory('cmas_outdoor', 'cwt')" aria-label="Constant Weight"><span>CWT</span><small>CONSTANT WEIGHT</small></button>
+        <button class="category-btn" onclick="showCategory('cmas_outdoor', 'cwtb')" aria-label="Constant Weight Bifins"><span>CWTB</span><small>CONSTANT WEIGHT BIFINS</small></button>
+        <button class="category-btn" onclick="showCategory('cmas_outdoor', 'cnf')" aria-label="Constant Weight No Fins"><span>CNF</span><small>CONSTANT WEIGHT NO FINS</small></button>
+        <button class="category-btn" onclick="showCategory('cmas_outdoor', 'fim')" aria-label="Free Immersion"><span>FIM</span><small>FREE IMMERSION</small></button>
+      </div>
+      <article>
+        <h3>CMAS — RECORDS EN BASSIN</h3>
+        <div id="cmas_indoor-records" class="records-container"></div>
+      </article>
+      <article>
+        <h3>CMAS — RECORDS EN MER / EAU DOUCE</h3>
+        <div id="cmas_outdoor-records" class="records-container"></div>
+      </article>
+    </section>
+    <section id="aida" class="federation-section">
+      <h2>AIDA <span class="federation-subtitle">(Association Internationale pour le Développement de l'Apnée)</span></h2>
+      <p><small>Source : <a href="https://www.aidainternational.org/#Man" target="_blank" rel="noopener">Records AIDA</a></small></p>
+      <div class="category-buttons">
+        <button class="category-btn" onclick="showCategory('aida', 'sta')" aria-label="Static Apnea"><span>STA</span><small>STATIC APNEA</small></button>
+        <button class="category-btn" onclick="showCategory('aida', 'dyn')" aria-label="Dynamic With Fins"><span>DYN</span><small>DYNAMIC WITH FINS</small></button>
+        <button class="category-btn" onclick="showCategory('aida', 'dnf')" aria-label="Dynamic No Fins"><span>DNF</span><small>DYNAMIC NO FINS</small></button>
+        <button class="category-btn" onclick="showCategory('aida', 'dynb')" aria-label="Dynamic With Bi-Fins"><span>DYNB</span><small>DYNAMIC WITH BI-FINS</small></button>
+        <button class="category-btn" onclick="showCategory('aida', 'cwt')" aria-label="Constant Weight"><span>CWT</span><small>CONSTANT WEIGHT</small></button>
+        <button class="category-btn" onclick="showCategory('aida', 'cwtb')" aria-label="Constant Weight Bifins"><span>CWTB</span><small>CONSTANT WEIGHT BIFINS</small></button>
+        <button class="category-btn" onclick="showCategory('aida', 'cnf')" aria-label="Constant Weight No Fins"><span>CNF</span><small>CONSTANT WEIGHT NO FINS</small></button>
+        <button class="category-btn" onclick="showCategory('aida', 'fim')" aria-label="Free Immersion"><span>FIM</span><small>FREE IMMERSION</small></button>
+        <button class="category-btn" onclick="showCategory('aida', 'vwt')" aria-label="Variable Weight"><span>VWT</span><small>VARIABLE WEIGHT</small></button>
+        <button class="category-btn" onclick="showCategory('aida', 'nlt')" aria-label="No Limit"><span>NLT</span><small>NO LIMIT</small></button>
+      </div>
+      <div id="aida-records" class="records-container"></div>
+    </section>
+  </main>
   <footer>
-    <p>© 2025 O2 Freediving. All rights reserved.</p>
-    <a href="https://www.instagram.com/o2freediving" target="_blank" class="instagram-link" rel="noopener"><span>Follow us on Instagram</span></a>
+    <p>© 2025 O2 Freediving. Tous droits réservés.</p>
+    <a href="https://www.instagram.com/o2freediving" target="_blank" class="instagram-link" rel="noopener" aria-label="Suivez-nous sur Instagram">Suivez-nous sur Instagram</a>
   </footer>
   <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const records = {
-      aida: {
-        sta: {
-          male: [{ athlete: "Branko Petrovic (SRB)", result: "11:54", date: "2021-06-25", place: "Belgrade, Serbia", source: "AIDA" }],
-          female: [{ athlete: "Natalia Molchanova (RUS)", result: "9:02", date: "2009-06-28", place: "Sofia, Bulgaria", source: "AIDA" }]
+    document.addEventListener('DOMContentLoaded', function() {
+      const records = {
+        aida: {
+          sta: { male: [{ athlete: "Branko Petrovic (SRB)", result: "11:54", date: "2021-06-25", place: "Belgrade, Serbia", source: "AIDA" }], female: [{ athlete: "Natalia Molchanova (RUS)", result: "9:02", date: "2009-06-28", place: "Sofia, Bulgaria", source: "AIDA" }] },
+          dyn: { male: [{ athlete: "Mateusz Malina (POL)", result: "330 m", date: "2023-06-25", place: "Gdynia, Poland", source: "AIDA" }], female: [{ athlete: "Magdalena Solich-Talanda (POL)", result: "291 m", date: "2023-06-25", place: "Gdynia, Poland", source: "AIDA" }] },
+          dnf: { male: [{ athlete: "Mateusz Malina (POL)", result: "300 m", date: "2023-06-24", place: "Gdynia, Poland", source: "AIDA" }], female: [{ athlete: "Magdalena Solich-Talanda (POL)", result: "244 m", date: "2016-06-25", place: "Belgrade, Serbia", source: "AIDA" }] },
+          dynb: { male: [{ athlete: "Arnaud Jérald (FRA)", result: "300 m", date: "2021-06-28", place: "Fos-sur-Mer, France", source: "AIDA" }], female: [{ athlete: "Magdalena Solich-Talanda (POL)", result: "277 m", date: "2021-06-26", place: "Fos-sur-Mer, France", source: "AIDA" }] },
+          cwt: { male: [{ athlete: "Alexey Molchanov (RUS)", result: "133 m", date: "2023-07-25", place: "Limassol, Cyprus", source: "AIDA" }], female: [{ athlete: "Alenka Artnik (SLO)", result: "128 m", date: "2023-07-23", place: "Limassol, Cyprus", source: "AIDA" }] },
+          cwtb: { male: [{ athlete: "Alexey Molchanov (RUS)", result: "132 m", date: "2023-07-24", place: "Limassol, Cyprus", source: "AIDA" }], female: [{ athlete: "Alenka Artnik (SLO)", result: "118 m", date: "2023-07-22", place: "Limassol, Cyprus", source: "AIDA" }] },
+          cnf: { male: [{ athlete: "William Winram (CAN)", result: "102 m", date: "2021-07-25", place: "Kalamata, Greece", source: "AIDA" }], female: [{ athlete: "Alenka Artnik (SLO)", result: "73 m", date: "2017-07-25", place: "Roatan, Honduras", source: "AIDA" }] },
+          fim: { male: [{ athlete: "William Winram (CAN)", result: "130 m", date: "2021-07-25", place: "Kalamata, Greece", source: "AIDA" }], female: [{ athlete: "Sayuri Kinoshita (JPN)", result: "97 m", date: "2016-07-25", place: "Kalamata, Greece", source: "AIDA" }] },
+          vwt: { male: [{ athlete: "Stig Severinsen (DEN)", result: "150 m", date: "2013-07-25", place: "Kalamata, Greece", source: "AIDA" }], female: [{ athlete: "Nanako Matsushima (JPN)", result: "130 m", date: "2016-07-25", place: "Kalamata, Greece", source: "AIDA" }] },
+          nlt: { male: [{ athlete: "Herbert Nitsch (AUT)", result: "214 m", date: "2007-06-14", place: "Spetses, Greece", source: "AIDA" }], female: [{ athlete: "Tanya Streeter (Cayman Islands)", result: "160 m", date: "2002-08-17", place: "Turks and Caicos", source: "AIDA" }] }
         },
-        dyn: {
-          male: [{ athlete: "Mateusz Malina (POL)", result: "330 m", date: "2023-06-25", place: "Gdynia, Poland", source: "AIDA" }],
-          female: [{ athlete: "Magdalena Solich-Talanda (POL)", result: "291 m", date: "2023-06-25", place: "Gdynia, Poland", source: "AIDA" }]
+        cmas_indoor: {
+          sta: { male: [{ athlete: "Branko Petrovic (SRB)", result: "10:45.00", date: "2017-11-11", place: "Subotica, Serbia", source: "CMAS Indoor WR (27-May-2025)" }], female: [{ athlete: "Heike Monika Schwerdtner (GER)", result: "09:05.00", date: "2025-05-23", place: "Athens, Greece", source: "CMAS Indoor WR (27-May-2025)" }] },
+          dyn: { male: [{ athlete: "Mateusz Malina (POL)", result: "326.50 m", date: "2025-05-24", place: "Athens, Greece", source: "CMAS Indoor WR (27-May-2025)" }], female: [{ athlete: "Mirela Kardasevic (CRO)", result: "284 m", date: "2025-05-24", place: "Athens, Greece", source: "CMAS Indoor WR (27-May-2025)" }] },
+          dnf: { male: [{ athlete: "Mateusz Malina (POL)", result: "300 m", date: "2025-05-21", place: "Athens, Greece", source: "CMAS Indoor WR (27-May-2025)" }], female: [{ athlete: "Julia Kozerska (POL)", result: "214 m", date: "2025-05-20", place: "Athens, Greece", source: "CMAS Indoor WR (27-May-2025)" }] }
         },
-        dnf: {
-          male: [{ athlete: "Mateusz Malina (POL)", result: "300 m", date: "2023-06-24", place: "Gdynia, Poland", source: "AIDA" }],
-          female: [{ athlete: "Magdalena Solich-Talanda (POL)", result: "244 m", date: "2016-06-25", place: "Belgrade, Serbia", source: "AIDA" }]
-        },
-        dynb: {
-          male: [{ athlete: "Arnaud Jérald (FRA)", result: "300 m", date: "2021-06-28", place: "Fos-sur-Mer, France", source: "AIDA" }],
-          female: [{ athlete: "Magdalena Solich-Talanda (POL)", result: "277 m", date: "2021-06-26", place: "Fos-sur-Mer, France", source: "AIDA" }]
-        },
-        cwt: {
-          male: [{ athlete: "Alexey Molchanov (RUS)", result: "133 m", date: "2023-07-25", place: "Limassol, Cyprus", source: "AIDA" }],
-          female: [{ athlete: "Alenka Artnik (SLO)", result: "128 m", date: "2023-07-23", place: "Limassol, Cyprus", source: "AIDA" }]
-        },
-        cwtb: {
-          male: [{ athlete: "Alexey Molchanov (RUS)", result: "132 m", date: "2023-07-24", place: "Limassol, Cyprus", source: "AIDA" }],
-          female: [{ athlete: "Alenka Artnik (SLO)", result: "118 m", date: "2023-07-22", place: "Limassol, Cyprus", source: "AIDA" }]
-        },
-        cnf: {
-          male: [{ athlete: "William Winram (CAN)", result: "102 m", date: "2021-07-25", place: "Kalamata, Greece", source: "AIDA" }],
-          female: [{ athlete: "Alenka Artnik (SLO)", result: "73 m", date: "2017-07-25", place: "Roatan, Honduras", source: "AIDA" }]
-        },
-        fim: {
-          male: [{ athlete: "William Winram (CAN)", result: "130 m", date: "2021-07-25", place: "Kalamata, Greece", source: "AIDA" }],
-          female: [{ athlete: "Sayuri Kinoshita (JPN)", result: "97 m", date: "2016-07-25", place: "Kalamata, Greece", source: "AIDA" }]
-        },
-        vwt: {
-          male: [{ athlete: "Stig Severinsen (DEN)", result: "150 m", date: "2013-07-25", place: "Kalamata, Greece", source: "AIDA" }],
-          female: [{ athlete: "Nanako Matsushima (JPN)", result: "130 m", date: "2016-07-25", place: "Kalamata, Greece", source: "AIDA" }]
-        },
-        nlt: {
-          male: [{ athlete: "Herbert Nitsch (AUT)", result: "214 m", date: "2007-06-14", place: "Spetses, Greece", source: "AIDA" }],
-          female: [{ athlete: "Tanya Streeter (Cayman Islands)", result: "160 m", date: "2002-08-17", place: "Turks and Caicos", source: "AIDA" }]
+        cmas_outdoor: {
+          cwt: { male: [{ athlete: "Alexey Molchanov (RUS)", result: "136 m", date: "2023-08-21", place: "Roatán, Honduras", source: "CMAS Outdoor SEA (01-Nov-2024)" }], female: [{ athlete: "Alenka Artnik (SLO)", result: "122 m", date: "2021-07-21", place: "Long Island, Bahamas", source: "CMAS Outdoor SEA (01-Nov-2024)" }] },
+          cwtb: { male: [{ athlete: "Alexey Molchanov (RUS)", result: "124 m", date: "2023-08-25", place: "Roatán, Honduras", source: "CMAS Outdoor SEA (01-Nov-2024)" }], female: [{ athlete: "Alenka Artnik (SLO)", result: "106 m", date: "2021-09-30", place: "Kaş, Turkey", source: "CMAS Outdoor SEA (01-Nov-2024)" }] },
+          cnf: { male: [{ athlete: "Petar Klovar (CRO)", result: "132 m", date: "2022-10-04", place: "Kaş / Antalya, Turkey", source: "CMAS Outdoor SEA (01-Nov-2024)" }], female: [{ athlete: "Kateryna Sadurska (UKR)", result: "80 m", date: "2024-10-10", place: "Kalamata, Greece", source: "CMAS Outdoor SEA (01-Nov-2024)" }] },
+          fim: { male: [{ athlete: "William Winram (SUI)", result: "140 m", date: "2023-12-11", place: "Sharm el-Sheikh, Egypt", source: "CMAS Outdoor SEA (01-Nov-2024)" }], female: [{ athlete: "Şahika Ercümen (TUR)", result: "106 m", date: "2023-10-17", place: "Hatay, Türkiye", source: "CMAS Outdoor SEA (01-Nov-2024)" }] }
         }
-      },
-      cmas_indoor: {
-        sta: {
-          male: [{ athlete: "Branko Petrovic (SRB)", result: "10:45.00", date: "2017-11-11", place: "Subotica, Serbia", source: "CMAS Indoor WR (27-May-2025)" }],
-          female: [{ athlete: "Heike Monika Schwerdtner (GER)", result: "09:05.00", date: "2025-05-23", place: "Athens, Greece", source: "CMAS Indoor WR (27-May-2025)" }]
-        },
-        dyn: {
-          male: [{ athlete: "Mateusz Malina (POL)", result: "326.50 m", date: "2025-05-24", place: "Athens, Greece", source: "CMAS Indoor WR (27-May-2025)" }],
-          female: [{ athlete: "Mirela Kardasevic (CRO)", result: "284 m", date: "2025-05-24", place: "Athens, Greece", source: "CMAS Indoor WR (27-May-2025)" }]
-        },
-        dnf: {
-          male: [{ athlete: "Mateusz Malina (POL)", result: "300 m", date: "2025-05-21", place: "Athens, Greece", source: "CMAS Indoor WR (27-May-2025)" }],
-          female: [{ athlete: "Julia Kozerska (POL)", result: "214 m", date: "2025-05-20", place: "Athens, Greece", source: "CMAS Indoor WR (27-May-2025)" }]
-        }
-      },
-      cmas_outdoor: {
-        cwt: {
-          male: [{ athlete: "Alexey Molchanov (RUS)", result: "136 m", date: "2023-08-21", place: "Roatán, Honduras", source: "CMAS Outdoor SEA (01-Nov-2024)" }],
-          female: [{ athlete: "Alenka Artnik (SLO)", result: "122 m", date: "2021-07-21", place: "Long Island, Bahamas", source: "CMAS Outdoor SEA (01-Nov-2024)" }]
-        },
-        cwtb: {
-          male: [{ athlete: "Alexey Molchanov (RUS)", result: "124 m", date: "2023-08-25", place: "Roatán, Honduras", source: "CMAS Outdoor SEA (01-Nov-2024)" }],
-          female: [{ athlete: "Alenka Artnik (SLO)", result: "106 m", date: "2021-09-30", place: "Kaş, Turkey", source: "CMAS Outdoor SEA (01-Nov-2024)" }]
-        },
-        cnf: {
-          male: [{ athlete: "Petar Klovar (CRO)", result: "132 m", date: "2022-10-04", place: "Kaş / Antalya, Turkey", source: "CMAS Outdoor SEA (01-Nov-2024)" }],
-          female: [{ athlete: "Kateryna Sadurska (UKR)", result: "80 m", date: "2024-10-10", place: "Kalamata, Greece", source: "CMAS Outdoor SEA (01-Nov-2024)" }]
-        },
-        fim: {
-          male: [{ athlete: "William Winram (SUI)", result: "140 m", date: "2023-12-11", place: "Sharm el-Sheikh, Egypt", source: "CMAS Outdoor SEA (01-Nov-2024)" }],
-          female: [{ athlete: "Şahika Ercümen (TUR)", result: "106 m", date: "2023-10-17", place: "Hatay, Türkiye", source: "CMAS Outdoor SEA (01-Nov-2024)" }]
-        }
+      };
+      function showFederation(fed) {
+        document.querySelectorAll('.federation-section').forEach(sec => sec.style.display = 'none');
+        document.getElementById(fed).style.display = 'block';
       }
-    };
-
-    function showFederation(fed) {
-      document.querySelectorAll('.federation-section').forEach(sec => sec.style.display = 'none');
-      const el = document.getElementById(fed);
-      if (el) el.style.display = 'block';
-    }
-
-    function showCategory(fed, cat) {
-      const containerId = fed === 'aida' ? 'aida-records' : (fed === 'cmas_indoor' ? 'cmas_indoor-records' : 'cmas_outdoor-records');
-      const container = document.getElementById(containerId);
-      const genderButtons = `<div class="gender-buttons"><button class="gender-btn" onclick="showRecords('${fed}','${cat}','male')">MEN</button><button class="gender-btn" onclick="showRecords('${fed}','${cat}','female')">WOMEN</button></div>`;
-      container.innerHTML = `<h3>${cat.toUpperCase()}</h3>` + genderButtons + `<div id="${fed}-${cat}-records" class="records-table"></div>`;
-    }
-    function showRecords(fed, cat, gender) {
-      const data = records[fed] && records[fed][cat] && records[fed][cat][gender];
-      const tableContainer = document.getElementById(`${fed}-${cat}-records`);
-      if (!data) {
-        tableContainer.innerHTML = "<p>No record available for this category.</p>";
-        return;
+      function showCategory(fed, cat) {
+        const containerId = fed === 'aida' ? 'aida-records' : (fed === 'cmas_indoor' ? 'cmas_indoor-records' : 'cmas_outdoor-records');
+        const container = document.getElementById(containerId);
+        const genderButtons = `<div class="gender-buttons"><button class="gender-btn" onclick="showRecords('${fed}','${cat}','male')" aria-label="Voir les records masculins">HOMMES</button><button class="gender-btn" onclick="showRecords('${fed}','${cat}','female')" aria-label="Voir les records féminins">FEMMES</button></div>`;
+        container.innerHTML = `<h3>${cat.toUpperCase()}</h3>` + genderButtons + `<div id="${fed}-${cat}-records" class="records-table"></div>`;
       }
-      let html = `<table><thead><tr><th>Discipline</th><th>Gender</th><th>Athlete</th><th>Result</th><th>Date</th><th>Place</th><th>Source</th></tr></thead><tbody>`;
-      data.forEach(rec => {
-        html += `<tr><td>${cat.toUpperCase()}</td><td>${gender === 'male' ? 'Male' : 'Female'}</td><td>${rec.athlete}</td><td>${rec.result}</td><td>${rec.date}</td><td>${rec.place}</td><td>${rec.source}</td></tr>`;
-      });
-      html += `</tbody></table>`;
-      tableContainer.innerHTML = html;
-    }
-    // Initialisation
-    showFederation('aida');
-  });
+      function showRecords(fed, cat, gender) {
+        const data = records[fed]?.[cat]?.[gender];
+        const tableContainer = document.getElementById(`${fed}-${cat}-records`);
+        if (!data) {
+          tableContainer.innerHTML = "<p>Aucun record disponible pour cette catégorie.</p>";
+          return;
+        }
+        let html = `<table aria-label="Tableau des records ${cat.toUpperCase()} ${gender === 'male' ? 'masculins' : 'féminins'}"><thead><tr><th>Discipline</th><th>Genre</th><th>Athlète</th><th>Résultat</th><th>Date</th><th>Lieu</th><th>Source</th></tr></thead><tbody>`;
+        data.forEach(rec => {
+          html += `<tr><td>${cat.toUpperCase()}</td><td>${gender === 'male' ? 'Homme' : 'Femme'}</td><td>${rec.athlete}</td><td>${rec.result}</td><td>${rec.date}</td><td>${rec.place}</td><td>${rec.source}</td></tr>`;
+        });
+        html += `</tbody></table>`;
+        tableContainer.innerHTML = html;
+      }
+      // Initialisation
+      showFederation('aida');
+    });
   </script>
 </body>
 </html>
