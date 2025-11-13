@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Records mondiaux officiels de plongée en apnée (CMAS & AIDA) en profondeur et en bassin." />
-  <meta name="keywords" content="apnée, plongée, records, CMAS, AIDA, static, dynamique, profondeur" />
+  <meta name="description" content="Official freediving world records (CMAS & AIDA) for depth and pool disciplines." />
+  <meta name="keywords" content="freediving, apnea, records, CMAS, AIDA, static, dynamic, depth" />
   <meta name="theme-color" content="#002060" />
-  <meta property="og:title" content="Records Mondiaux d'Apnée — O₂ Freediving" />
-  <meta property="og:description" content="Records officiels CMAS & AIDA en apnée (profondeur et bassin)." />
+  <meta property="og:title" content="Freediving World Records — O₂ Freediving" />
+  <meta property="og:description" content="Official CMAS & AIDA freediving records (depth and pool)." />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -15,25 +15,25 @@
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" /></noscript>
   <link rel="stylesheet" href="style.css" />
-  <title>Records Mondiaux d'Apnée — O₂ Freediving</title>
+  <title>Freediving World Records — O₂ Freediving</title>
 </head>
 <body>
   <header>
     <div class="logo-container">
-      <img src="image/logo-o2freediving.png" alt="Logo O₂ Freediving" class="logo" width="120" height="120" loading="lazy" />
-      <p class="logo-text">O₂ freediving</p>
+      <img src="image/logo-o2freediving.png" alt="O₂ Freediving Logo" class="logo" width="120" height="120" loading="lazy" />
+      <p class="logo-text">O₂ Freediving</p>
     </div>
-    <h1>RECORDS MONDIAUX D'APNÉE</h1>
-    <p class="subtitle">RECORDS OFFICIELS CMAS & AIDA</p>
+    <h1>FREEDIVING WORLD RECORDS</h1>
+    <p class="subtitle">OFFICIAL CMAS & AIDA RECORDS</p>
   </header>
   <main>
     <div class="federation-choice">
-      <button class="federation-btn" onclick="showFederation('cmas')" aria-label="Voir les records CMAS">CMAS</button>
-      <button class="federation-btn" onclick="showFederation('aida')" aria-label="Voir les records AIDA">AIDA</button>
+      <button class="federation-btn" onclick="showFederation('cmas')" aria-label="View CMAS records">CMAS</button>
+      <button class="federation-btn" onclick="showFederation('aida')" aria-label="View AIDA records">AIDA</button>
     </div>
     <section id="cmas" class="federation-section" style="display:none;">
-      <h2>CMAS <span class="federation-subtitle">(Fédération Mondiale des Activités Subaquatiques)</span></h2>
-      <p><small>Source : <a href="https://www.cmas.org/freediving/records-ranking.html" target="_blank" rel="noopener">Records CMAS</a></small></p>
+      <h2>CMAS <span class="federation-subtitle">(World Underwater Federation)</span></h2>
+      <p><small>Source: <a href="https://www.cmas.org/freediving/records-ranking.html" target="_blank" rel="noopener">CMAS Records</a></small></p>
       <div class="category-buttons">
         <button class="category-btn" onclick="showCategory('cmas_indoor', 'sta')" aria-label="Static Apnea"><span>STA</span><small>STATIC APNEA</small></button>
         <button class="category-btn" onclick="showCategory('cmas_indoor', 'dyn')" aria-label="Dynamic With Fins"><span>DYN</span><small>DYNAMIC WITH FINS</small></button>
@@ -44,17 +44,17 @@
         <button class="category-btn" onclick="showCategory('cmas_outdoor', 'fim')" aria-label="Free Immersion"><span>FIM</span><small>FREE IMMERSION</small></button>
       </div>
       <article>
-        <h3>CMAS — RECORDS EN BASSIN</h3>
+        <h3>CMAS — POOL RECORDS</h3>
         <div id="cmas_indoor-records" class="records-container"></div>
       </article>
       <article>
-        <h3>CMAS — RECORDS EN MER / EAU DOUCE</h3>
+        <h3>CMAS — SEA/FRESHWATER RECORDS</h3>
         <div id="cmas_outdoor-records" class="records-container"></div>
       </article>
     </section>
     <section id="aida" class="federation-section">
-      <h2>AIDA <span class="federation-subtitle">(Association Internationale pour le Développement de l'Apnée)</span></h2>
-      <p><small>Source : <a href="https://www.aidainternational.org/#Man" target="_blank" rel="noopener">Records AIDA</a></small></p>
+      <h2>AIDA <span class="federation-subtitle">(International Association for the Development of Apnea)</span></h2>
+      <p><small>Source: <a href="https://www.aidainternational.org/#Man" target="_blank" rel="noopener">AIDA Records</a></small></p>
       <div class="category-buttons">
         <button class="category-btn" onclick="showCategory('aida', 'sta')" aria-label="Static Apnea"><span>STA</span><small>STATIC APNEA</small></button>
         <button class="category-btn" onclick="showCategory('aida', 'dyn')" aria-label="Dynamic With Fins"><span>DYN</span><small>DYNAMIC WITH FINS</small></button>
@@ -71,8 +71,8 @@
     </section>
   </main>
   <footer>
-    <p>© 2025 O2 Freediving. Tous droits réservés.</p>
-    <a href="https://www.instagram.com/o2freediving" target="_blank" class="instagram-link" rel="noopener" aria-label="Suivez-nous sur Instagram">Suivez-nous sur Instagram</a>
+    <p>© 2025 O₂ Freediving. All rights reserved.</p>
+    <a href="https://www.instagram.com/o2freediving" target="_blank" class="instagram-link" rel="noopener" aria-label="Follow us on Instagram">Follow us on Instagram</a>
   </footer>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -108,24 +108,24 @@
       function showCategory(fed, cat) {
         const containerId = fed === 'aida' ? 'aida-records' : (fed === 'cmas_indoor' ? 'cmas_indoor-records' : 'cmas_outdoor-records');
         const container = document.getElementById(containerId);
-        const genderButtons = `<div class="gender-buttons"><button class="gender-btn" onclick="showRecords('${fed}','${cat}','male')" aria-label="Voir les records masculins">HOMMES</button><button class="gender-btn" onclick="showRecords('${fed}','${cat}','female')" aria-label="Voir les records féminins">FEMMES</button></div>`;
+        const genderButtons = `<div class="gender-buttons"><button class="gender-btn" onclick="showRecords('${fed}','${cat}','male')" aria-label="View men's records">MEN</button><button class="gender-btn" onclick="showRecords('${fed}','${cat}','female')" aria-label="View women's records">WOMEN</button></div>`;
         container.innerHTML = `<h3>${cat.toUpperCase()}</h3>` + genderButtons + `<div id="${fed}-${cat}-records" class="records-table"></div>`;
       }
       function showRecords(fed, cat, gender) {
         const data = records[fed]?.[cat]?.[gender];
         const tableContainer = document.getElementById(`${fed}-${cat}-records`);
         if (!data) {
-          tableContainer.innerHTML = "<p>Aucun record disponible pour cette catégorie.</p>";
+          tableContainer.innerHTML = "<p>No records available for this category.</p>";
           return;
         }
-        let html = `<table aria-label="Tableau des records ${cat.toUpperCase()} ${gender === 'male' ? 'masculins' : 'féminins'}"><thead><tr><th>Discipline</th><th>Genre</th><th>Athlète</th><th>Résultat</th><th>Date</th><th>Lieu</th><th>Source</th></tr></thead><tbody>`;
+        let html = `<table aria-label="${cat.toUpperCase()} ${gender} records"><thead><tr><th>Discipline</th><th>Gender</th><th>Athlete</th><th>Result</th><th>Date</th><th>Location</th><th>Source</th></tr></thead><tbody>`;
         data.forEach(rec => {
-          html += `<tr><td>${cat.toUpperCase()}</td><td>${gender === 'male' ? 'Homme' : 'Femme'}</td><td>${rec.athlete}</td><td>${rec.result}</td><td>${rec.date}</td><td>${rec.place}</td><td>${rec.source}</td></tr>`;
+          html += `<tr><td>${cat.toUpperCase()}</td><td>${gender === 'male' ? 'Men' : 'Women'}</td><td>${rec.athlete}</td><td>${rec.result}</td><td>${rec.date}</td><td>${rec.place}</td><td>${rec.source}</td></tr>`;
         });
         html += `</tbody></table>`;
         tableContainer.innerHTML = html;
       }
-      // Initialisation
+      // Initialize with AIDA section visible
       showFederation('aida');
     });
   </script>
