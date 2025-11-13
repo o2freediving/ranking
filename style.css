@@ -32,7 +32,7 @@ header {
     color: white; /* Couleur du texte */
     font-size: 0.8rem; /* Taille du texte */
     margin-top: 0.3rem; /* Espace entre le logo et le texte */
-    font-weight: 300; /* Épaisseur du texte */
+    font-weight: 200; /* Épaisseur du texte */
     letter-spacing: 1px; /* Espacement entre les lettres */
 }
 
