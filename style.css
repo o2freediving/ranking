@@ -70,21 +70,35 @@ header h1 {
   overflow: hidden;
   white-space: nowrap;
   background-color: #FF0000;
-  padding: 0.1rem 0; /* Bandeau plus fin */
+  padding: 0.5rem 0;
   font-weight: bold;
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   position: relative;
+  width: 100%;
 }
+
 #latest-record-text {
   display: inline-block;
-  padding-left: 100%;
-  animation: scroll-left 20s linear infinite; /* Vitesse augmentée */
+  padding-left: 100%; /* Commence hors de l'écran à droite */
+  animation: scroll-left 12s linear infinite; /* Durée totale réduite */
   color: #002060;
-  line-height: 1.1;
+  line-height: 1.5;
+  white-space: nowrap;
 }
+
 @keyframes scroll-left {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-75%); } /* Ajusté pour 4 répétitions */
+  0%, 10% {
+    transform: translateX(0); /* Bandeau vide au début (10% du temps) */
+  }
+  15% {
+    transform: translateX(-10%); /* Début du défilement */
+  }
+  95% {
+    transform: translateX(-120%); /* Fin du défilement (texte hors écran) */
+  }
+  100% {
+    transform: translateX(-120%); /* Bandeau vide à la fin (5% du temps) */
+  }
 }
 
 /* Federation Choice Buttons */
