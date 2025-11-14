@@ -84,12 +84,22 @@ header h1 {
   width: 100%;
 }
 
+.latest-record-banner {
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: #FF0000;
+  padding: 0.3rem 0;
+  font-weight: bold;
+  font-size: 1.8rem;
+  position: relative;
+}
+
 #latest-record-text {
   display: inline-block;
-  white-space: nowrap;
+  padding-left: 100%;
+  animation: scroll-left 20s linear infinite;
   color: #002060;
   line-height: 1.1;
-  animation: scroll-left 20s linear infinite;
 }
 
 /* Animation pour un défilement fluide */
