@@ -70,9 +70,9 @@ header h1 {
   overflow: hidden;
   white-space: nowrap;
   background-color: #FF0000;
-  padding: 0.2rem 0; /* Réduction du padding vertical (0.5rem → 0.2rem) */
+  padding: 0.1rem 0; /* Réduction du padding vertical (0.5rem → 0.2rem) */
   font-weight: bold;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   position: relative;
   width: 100%;
   line-height: 1.2; /* Réduction de la hauteur de ligne (1.5 → 1.2) */
@@ -83,7 +83,7 @@ header h1 {
   padding-left: 100%;
   animation: scroll-left 12s linear infinite;
   color: #002060;
-  line-height: 1.4; /* Même hauteur de ligne que le parent */
+  line-height: 1.5; /* Même hauteur de ligne que le parent */
   white-space: nowrap;
 }
 
