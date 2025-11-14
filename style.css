@@ -70,34 +70,35 @@ header h1 {
   overflow: hidden;
   white-space: nowrap;
   background-color: #FF0000;
-  padding: 0.5rem 0;
+  padding: 0.2rem 0; /* Réduction du padding vertical (0.5rem → 0.2rem) */
   font-weight: bold;
   font-size: 1.2rem;
   position: relative;
   width: 100%;
+  line-height: 1.2; /* Réduction de la hauteur de ligne (1.5 → 1.2) */
 }
 
 #latest-record-text {
   display: inline-block;
-  padding-left: 100%; /* Commence hors de l'écran à droite */
-  animation: scroll-left 12s linear infinite; /* Durée totale réduite */
+  padding-left: 100%;
+  animation: scroll-left 10s linear infinite;
   color: #002060;
-  line-height: 1.5;
+  line-height: 1.2; /* Même hauteur de ligne que le parent */
   white-space: nowrap;
 }
 
 @keyframes scroll-left {
-  0%, 10% {
-    transform: translateX(0); /* Bandeau vide au début (10% du temps) */
+  0% {
+    transform: translateX(0); /* Texte hors écran à droite (bandeau vide) */
   }
-  15% {
-    transform: translateX(-10%); /* Début du défilement */
+  5% {
+    transform: translateX(0); /* Petite pause initiale (0.5s si durée = 10s) */
   }
   95% {
-    transform: translateX(-120%); /* Fin du défilement (texte hors écran) */
+    transform: translateX(-100%); /* Texte complètement hors écran à gauche */
   }
   100% {
-    transform: translateX(-120%); /* Bandeau vide à la fin (5% du temps) */
+    transform: translateX(-100%); /* Fin du défilement (pas de pause) */
   }
 }
 
