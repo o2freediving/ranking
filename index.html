@@ -3,16 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Official freediving world records (CMAS & AIDA) for depth and pool disciplines." />
-  <meta name="keywords" content="freediving, apnea, records, CMAS, AIDA, static, dynamic, depth" />
+  <meta name="description" content="Official CMAS & AIDA freediving world records for depth and pool disciplines. Updated regularly with the latest achievements in static apnea, dynamic, and depth disciplines." />
+  <meta name="keywords" content="freediving, apnea, world records, CMAS, AIDA, static apnea, dynamic, depth, CWT, DNF, CNF, FIM, VWT, NLT" />
   <meta name="theme-color" content="#002060" />
-  <meta property="og:title" content="Freediving World Records — O₂ Freediving" />
-  <meta property="og:description" content="Official CMAS & AIDA freediving records (depth and pool)." />
+  <meta property="og:title" content="Freediving World Records — O₂ Freediving | Official CMAS & AIDA Records" />
+  <meta property="og:description" content="Explore the official CMAS & AIDA freediving world records for all disciplines: static apnea, dynamic, and depth. Updated with the latest achievements." />
   <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://ton-url.github.io" />
+  <meta property="og:image" content="https://ton-url.github.io/image/logo-o2freediving.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Freediving World Records — O₂ Freediving" />
+  <meta name="twitter:description" content="Official CMAS & AIDA freediving records for depth and pool disciplines. Updated regularly." />
+  <meta name="twitter:image" content="https://ton-url.github.io/image/logo-o2freediving.png" />
+  <link rel="preload" href="style.css" as="style" />
+  <link rel="preload" href="https://cdn.sheetjs.com/xlsx-0.19.3/package/dist/xlsx.full.min.js" as="script" />
   <link rel="stylesheet" href="style.css" />
-  <title>Freediving World Records — O₂ Freediving</title>
-  <script src="https://cdn.sheetjs.com/xlsx-0.19.3/package/dist/xlsx.full.min.js"></script>
+  <title>Freediving World Records — O₂ Freediving | Official CMAS & AIDA Records</title>
 </head>
 <body>
   <header>
@@ -24,7 +30,7 @@
     <p class="subtitle">OFFICIAL CMAS & AIDA RECORDS</p>
   </header>
   <div id="latest-record-banner" class="latest-record-banner">
-    <p id="latest-record-text"></p>
+    <div id="latest-record-text"></div>
   </div>
   <main>
     <div class="federation-choice">
@@ -34,7 +40,7 @@
     </div>
     <section id="cmas" class="federation-section" style="display:none;">
       <h2>CMAS <span class="federation-subtitle">(World Underwater Federation)</span></h2>
-      <p><small>Source: <a href="https://www.cmas.org/freediving/records-ranking.html" target="_blank" rel="noopener">CMAS Records</a></small></p>
+      <p><small>Source: <a href="https://www.cmas.org/freediving/records-ranking.html" target="_blank" rel="noopener nofollow">CMAS Records</a></small></p>
       <div class="category-buttons">
         <button class="category-btn" onclick="showCategory('cmas_indoor', 'sta')"><span>STA</span><small>STATIC APNEA</small></button>
         <button class="category-btn" onclick="showCategory('cmas_indoor', 'dyn')"><span>DYN</span><small>DYNAMIC WITH FINS</small></button>
@@ -55,7 +61,7 @@
     </section>
     <section id="aida" class="federation-section">
       <h2>AIDA <span class="federation-subtitle">(International Association for the Development of Apnea)</span></h2>
-      <p><small>Source: <a href="https://www.aidainternational.org/#Man" target="_blank" rel="noopener">AIDA Records</a></small></p>
+      <p><small>Source: <a href="https://www.aidainternational.org/#Man" target="_blank" rel="noopener nofollow">AIDA Records</a></small></p>
       <div class="category-buttons">
         <button class="category-btn" onclick="showCategory('aida', 'sta')"><span>STA</span><small>STATIC APNEA</small></button>
         <button class="category-btn" onclick="showCategory('aida', 'dyn')"><span>DYN</span><small>DYNAMIC WITH FINS</small></button>
@@ -73,8 +79,9 @@
   </main>
   <footer>
     <p>© 2025 O₂ Freediving. All rights reserved.</p>
-    <a href="https://www.instagram.com/o2freediving" target="_blank" class="instagram-link" rel="noopener">Follow us on Instagram</a>
+    <a href="https://www.instagram.com/o2freediving" target="_blank" class="instagram-link" rel="noopener nofollow">Follow us on Instagram</a>
   </footer>
+  <script src="https://cdn.sheetjs.com/xlsx-0.19.3/package/dist/xlsx.full.min.js" defer></script>
   <script>
     // Records data
     const records = {
@@ -318,7 +325,6 @@
       let latestFemaleRecord = null;
       let latestMaleDate = new Date(0);
       let latestFemaleDate = new Date(0);
-
       for (const fed in records) {
         for (const cat in records[fed]) {
           for (const gender in records[fed][cat]) {
@@ -343,30 +349,26 @@
       }
       return { male: latestMaleRecord, female: latestFemaleRecord };
     }
-// Display the latest records in the banner, scrolling left
-function displayLatestRecords() {
-  const { male, female } = findLatestRecords();
-  const bannerText = document.getElementById('latest-record-text');
 
-  if (!male || !female) {
-    bannerText.textContent = "No records available.";
-    return;
-  }
-
-  const maleText = `Latest record Men: ${male.athlete} — ${male.cat.toUpperCase()}: ${male.result} (${male.date})`;
-  const femaleText = `Latest record Women: ${female.athlete} — ${female.cat.toUpperCase()}: ${female.result} (${female.date})`;
-  const separator = "\u00A0\u00A0\u00A0\u00A0\u00A0•\u00A0\u00A0\u00A0\u00A0;
-
-  // Crée le contenu original
-  const originalContent = maleText + separator + femaleText + separator + maleText + separator + femaleText + separator + maleText + separator + femaleText + separator;
-
-  // Clone le contenu pour un défilement fluide
-  bannerText.innerHTML = originalContent + originalContent + originalContent + originalContent + originalContent + originalContent + originalContent + originalContent;
-}
+    // Display the latest records in the banner, scrolling left
+    function displayLatestRecords() {
+      const { male, female } = findLatestRecords();
+      const bannerText = document.getElementById('latest-record-text');
+      if (!male || !female) {
+        bannerText.textContent = "No records available.";
+        return;
+      }
+      const maleText = `Latest record Men: ${male.athlete} — ${male.cat.toUpperCase()}: ${male.result} (${male.date})`;
+      const femaleText = `Latest record Women: ${female.athlete} — ${female.cat.toUpperCase()}: ${female.result} (${female.date})`;
+      const separator = "\u00A0\u00A0•\u00A0\u00A0";
+      bannerText.innerHTML = maleText + separator + femaleText + separator + maleText + separator + femaleText + separator;
+    }
 
     // Initialize
     window.onload = function() {
       showFederation('aida');
+      showCategory('aida', 'sta');
+      showRecords('aida', 'sta', 'male');
       displayLatestRecords();
     };
   </script>
