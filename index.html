@@ -24,7 +24,7 @@
     <p class="subtitle">OFFICIAL CMAS & AIDA RECORDS</p>
   </header>
   <div id="latest-record-banner" class="latest-record-banner">
-    <p>Latest record: <span id="latest-record-text"></span></p>
+    <p id="latest-record-text"></p>
   </div>
   <main>
     <div class="federation-choice">
@@ -129,10 +129,10 @@
         },
         cnf: {
           male: [
-            { athlete: "Petar Klovar (CRO)", result: "103 m", date: "2025-05-26", place: "Sharm el Sheikh, Egypt", source: "AIDA" }
+            { athlete: "Petar Klovar (CRO)", result: "103 m", date: "2025-05-26", place: "—", source: "AIDA" }
           ],
           female: [
-            { athlete: "Kateryna Sadurska (UKR)", result: "84 m", date: "2024-12-02", place: "Dominica", source: "AIDA" }
+            { athlete: "Kateryna Sadurska (UKR)", result: "84 m", date: "2024-12-02", place: "—", source: "AIDA" }
           ]
         },
         fim: {
@@ -288,7 +288,6 @@
     // Export records to Excel
     function exportToExcel() {
       const allRecords = [];
-      // Iterate through all federations, categories, and genders
       for (const fed in records) {
         for (const cat in records[fed]) {
           for (const gender in records[fed][cat]) {
@@ -307,50 +306,64 @@
           }
         }
       }
-      // Create Excel workbook
       const ws = XLSX.utils.json_to_sheet(allRecords);
       const wb = XLSX.utils.book_new();
       XLSX.utils.book_append_sheet(wb, ws, "Freediving Records");
-      // Download file
       XLSX.writeFile(wb, "Freediving_World_Records.xlsx");
     }
 
-    // Find the latest record (most recent date)
-    function findLatestRecord() {
-      let latestRecord = null;
-      let latestDate = new Date(0);
+    // Find the latest records (most recent dates) for men and women
+    function findLatestRecords() {
+      let latestMaleRecord = null;
+      let latestFemaleRecord = null;
+      let latestMaleDate = new Date(0);
+      let latestFemaleDate = new Date(0);
+
       for (const fed in records) {
         for (const cat in records[fed]) {
           for (const gender in records[fed][cat]) {
             records[fed][cat][gender].forEach(rec => {
               const recordDate = new Date(rec.date);
-              if (recordDate > latestDate) {
-                latestDate = recordDate;
-                latestRecord = rec;
-                latestRecord.fed = fed;
-                latestRecord.cat = cat;
-                latestRecord.gender = gender;
+              if (gender === 'male' && recordDate > latestMaleDate) {
+                latestMaleDate = recordDate;
+                latestMaleRecord = rec;
+                latestMaleRecord.fed = fed;
+                latestMaleRecord.cat = cat;
+                latestMaleRecord.gender = gender;
+              } else if (gender === 'female' && recordDate > latestFemaleDate) {
+                latestFemaleDate = recordDate;
+                latestFemaleRecord = rec;
+                latestFemaleRecord.fed = fed;
+                latestFemaleRecord.cat = cat;
+                latestFemaleRecord.gender = gender;
               }
             });
           }
         }
       }
-      return latestRecord;
+      return { male: latestMaleRecord, female: latestFemaleRecord };
     }
 
-    // Display the latest record in the banner
-    function displayLatestRecord() {
-      const latestRecord = findLatestRecord();
-      if (latestRecord) {
-        const latestRecordText = document.getElementById('latest-record-text');
-        latestRecordText.textContent = `${latestRecord.athlete} (${latestRecord.gender === 'male' ? 'Men' : 'Women'}) — ${latestRecord.cat.toUpperCase()}: ${latestRecord.result} (${latestRecord.date})`;
+    // Display the latest records in the banner, scrolling left
+    function displayLatestRecords() {
+      const { male, female } = findLatestRecords();
+      const bannerText = document.getElementById('latest-record-text');
+
+      if (!male || !female) {
+        bannerText.textContent = "No records available.";
+        return;
       }
+
+      const maleText = `Men: ${male.athlete} — ${male.cat.toUpperCase()}: ${male.result} (${male.date})  •  `;
+      const femaleText = `Women: ${female.athlete} — ${female.cat.toUpperCase()}: ${female.result} (${female.date})  •  `;
+
+      bannerText.textContent = maleText + femaleText + maleText + femaleText;
     }
 
     // Initialize
     window.onload = function() {
       showFederation('aida');
-      displayLatestRecord();
+      displayLatestRecords();
     };
   </script>
 </body>
