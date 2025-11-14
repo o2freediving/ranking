@@ -47,7 +47,7 @@ header {
   font-weight: 300;   /* fin */
   color: white;
   text-shadow: none;  /* optionnel */
-  margin-top: 2px;    /* petit espace sous le logo */
+  margin-top: 0px;    /* petit espace sous le logo */
 }
 
 header h1 {
