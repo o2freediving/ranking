@@ -70,7 +70,7 @@ header h1 {
   overflow: hidden;
   white-space: nowrap;
   background-color: #FF0000;
-  padding: 0.1rem 0; /* Réduction du padding vertical */
+  padding: 0.1rem 0; /* Bandeau plus fin */
   font-weight: bold;
   font-size: 1.8rem;
   position: relative;
@@ -81,11 +81,10 @@ header h1 {
   animation: scroll-left 20s linear infinite; /* Vitesse augmentée */
   color: #002060;
   line-height: 1.1;
-  white-space: nowrap;
 }
 @keyframes scroll-left {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-33.33%); } /* Ajustement pour éviter le saut */
+  100% { transform: translateX(-75%); } /* Ajusté pour 4 répétitions */
 }
 
 /* Federation Choice Buttons */
