@@ -108,10 +108,15 @@ header h1 {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .export-btn {
-  background-color: #28a745;
+  background-color: #FF0000; /* Rouge par défaut (inverse des autres) */
 }
-.federation-btn:hover, .export-btn:hover {
-  background-color: #FF0000;
+.export-btn:hover {
+  background-color: #002060; /* Bleu au survol (inverse des autres) */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+.federation-btn:hover {
+  background-color: #FF0000; /* Rouge au survol (comme avant) */
   transform: translateY(-2px);
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
