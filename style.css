@@ -10,6 +10,22 @@ body {
   color: #333;
   line-height: 1.6;
 }
+/* Logo Animation */
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+}
+.logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-shadow: none;
+  animation: breathe 4s ease-in-out infinite;
+}
 /* Header Styles */
 header {
   background: linear-gradient(90deg, #002060, #FF0000);
@@ -24,22 +40,6 @@ header {
   justify-content: center;
   gap: 10px;
   margin-bottom: 1rem;
-}
-/* Logo Animation */
-@keyframes breathe {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-}
-.logo {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  box-shadow: none;
-  animation: breathe 4s ease-in-out infinite;
 }
 .logo:hover {
   transform: scale(1.12) translateY(-3px);
@@ -67,10 +67,25 @@ header h1 {
 .latest-record-banner {
   background-color: #FF0000;
   color: white;
-  text-align: center;
   padding: 0.8rem;
   font-weight: bold;
   font-size: 0.95rem;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+#latest-record-text {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll-left 15s linear infinite;
+}
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 /* Federation Choice Buttons */
 .federation-choice {
