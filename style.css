@@ -66,19 +66,24 @@ header h1 {
 /* Latest Record Banner */
 .latest-record-banner {
   background-color: #FF0000;
-  padding: 0.2rem 0;
+  padding: 0.3rem 0; /* Réduit le padding vertical pour un bandeau plus fin */
   font-weight: bold;
   font-size: 1.8rem;
   overflow: hidden;
   white-space: nowrap;
   position: relative;
-  line-height: 1.2;
+  line-height: 1.1; /* Réduit l'interligne pour un meilleur centrage vertical */
+  display: flex; /* Active le mode flexbox */
+  align-items: center; /* Centre verticalement le contenu */
+  justify-content: center; /* Centre horizontalement le contenu (optionnel, si besoin) */
 }
+
 #latest-record-text {
   display: inline-block;
   padding-left: 100%;
   animation: scroll-left 20s linear infinite;
   color: #002060;
+  line-height: 1.1; /* Applique aussi à l'élément texte pour cohérence */
 }
 @keyframes scroll-left {
   0% {
