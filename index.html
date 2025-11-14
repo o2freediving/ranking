@@ -354,10 +354,10 @@
         return;
       }
 
-      const maleText = `Men: ${male.athlete} — ${male.cat.toUpperCase()}: ${male.result} (${male.date})  •  `;
-      const femaleText = `Women: ${female.athlete} — ${female.cat.toUpperCase()}: ${female.result} (${female.date})  •  `;
+      const maleText = `Latest record Men: ${male.athlete} — ${male.cat.toUpperCase()}: ${male.result} (${male.date})  •  `;
+      const femaleText = `Latest record Women: ${female.athlete} — ${female.cat.toUpperCase()}: ${female.result} (${female.date})  •  `;
 
-      bannerText.textContent = maleText + femaleText + maleText + femaleText;
+      bannerText.textContent = maleText + femaleText + maleText + femaleText + maleText + femaleText;
     }
 
     // Initialize
