@@ -5,13 +5,11 @@
   box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
 body {
   background-color: #f8f9fa;
   color: #333;
   line-height: 1.6;
 }
-
 /* Header Styles */
 header {
   background: linear-gradient(90deg, #002060, #FF0000);
@@ -19,7 +17,6 @@ header {
   text-align: center;
   padding: 2rem 1rem;
 }
-
 .logo-container {
   flex-direction: column;
   display: flex;
@@ -28,7 +25,6 @@ header {
   gap: 10px;
   margin-bottom: 1rem;
 }
-
 .logo {
   width: 60px;
   height: 60px;
@@ -36,42 +32,46 @@ header {
   box-shadow: none;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .logo:hover {
   transform: scale(1.12) translateY(-3px);
   box-shadow: none;
 }
-
 .logo-text {
-  font-size: 0.85rem; /* petit */
-  font-weight: 300;   /* fin */
+  font-size: 0.85rem;
+  font-weight: 300;
   color: white;
-  text-shadow: none;  /* optionnel */
-  margin-top: 0px;    /* petit espace sous le logo */
+  text-shadow: none;
+  margin-top: 0px;
 }
-
 header h1 {
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
   color: white;
 }
-
 .subtitle {
   font-size: 1.2rem;
   color: white;
   font-weight: 300;
   letter-spacing: 1px;
 }
-
+/* Latest Record Banner */
+.latest-record-banner {
+  background-color: #FF0000;
+  color: white;
+  text-align: center;
+  padding: 0.8rem;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
 /* Federation Choice Buttons */
 .federation-choice {
   display: flex;
   justify-content: center;
   gap: 1rem;
   margin: 2rem 0;
+  flex-wrap: wrap;
 }
-
-.federation-btn {
+.federation-btn, .export-btn {
   background-color: #002060;
   color: white;
   border: none;
@@ -82,17 +82,17 @@ header h1 {
   transition: all 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
-.federation-btn:hover {
+.export-btn {
+  background-color: #28a745;
+}
+.federation-btn:hover, .export-btn:hover {
   background-color: #FF0000;
   transform: translateY(-2px);
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
-
-.federation-btn:active {
+.federation-btn:active, .export-btn:active {
   transform: translateY(0);
 }
-
 /* Federation Section */
 .federation-section {
   max-width: 1200px;
@@ -103,19 +103,16 @@ header h1 {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   margin-bottom: 2rem;
 }
-
 .federation-section h2 {
   color: #002060;
   margin-bottom: 1rem;
   font-size: 2rem;
 }
-
 .federation-subtitle {
   color: #FF0000;
   font-weight: 300;
   font-size: 1rem;
 }
-
 /* Category Buttons */
 .category-buttons {
   display: flex;
@@ -124,7 +121,6 @@ header h1 {
   gap: 0.8rem;
   margin: 1.5rem 0;
 }
-
 .category-btn {
   background-color: white;
   color: #002060;
@@ -138,21 +134,17 @@ header h1 {
   flex-direction: column;
   align-items: center;
 }
-
 .category-btn span {
   font-size: 1.1rem;
 }
-
 .category-btn small {
   font-size: 0.7rem;
   color: #666;
 }
-
 .category-btn:hover {
   background-color: #002060;
   color: white;
 }
-
 /* Gender Buttons */
 .gender-buttons {
   display: flex;
@@ -160,7 +152,6 @@ header h1 {
   gap: 1rem;
   margin: 1rem 0;
 }
-
 .gender-btn {
   background-color: #002060;
   color: white;
@@ -170,17 +161,14 @@ header h1 {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-
 .gender-btn:hover {
   background-color: #FF0000;
 }
-
 /* Records Table */
 .records-table {
   overflow-x: auto;
   margin-top: 1rem;
 }
-
 table {
   width: 100%;
   border-collapse: collapse;
@@ -189,27 +177,22 @@ table {
   border-radius: 8px;
   overflow: hidden;
 }
-
 th, td {
   padding: 1rem;
   text-align: left;
   border-bottom: 1px solid #eee;
 }
-
 th {
   background-color: #002060;
   color: white;
   font-weight: bold;
 }
-
 tr:nth-child(even) {
   background-color: #f8f9fa;
 }
-
 tr:hover {
   background-color: #e9f7fe;
 }
-
 /* Footer */
 footer {
   text-align: center;
@@ -218,30 +201,25 @@ footer {
   color: white;
   margin-top: 2rem;
 }
-
 .instagram-link {
   color: #FF0000;
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s ease;
 }
-
 .instagram-link:hover {
   color: white;
 }
-
 /* Responsive Design */
 @media (max-width: 768px) {
   .category-buttons {
     flex-direction: column;
     align-items: center;
   }
-
   .category-btn {
     width: 100%;
     max-width: 200px;
   }
-
   header h1 {
     font-size: 2rem;
   }
