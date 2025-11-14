@@ -36,7 +36,7 @@
     <div class="federation-choice">
       <button class="federation-btn" onclick="showFederation('cmas')">CMAS</button>
       <button class="federation-btn" onclick="showFederation('aida')">AIDA</button>
-      <button class="export-btn" onclick="exportToExcel()">Export to Excel</button>
+      <button class="export-btn" onclick="exportToExcel()">Export all records to Excel</button>
     </div>
     <section id="cmas" class="federation-section" style="display:none;">
       <h2>CMAS <span class="federation-subtitle">(World Underwater Federation)</span></h2>
@@ -362,7 +362,7 @@ function displayLatestRecords() {
   const femaleText = `Latest record Women: ${female.athlete} — ${female.cat.toUpperCase()}: ${female.result} (${female.date})`;
   const separator = "\u00A0\u00A0•\u00A0\u00A0";
   // Duplication optimisée (3x seulement)
-  bannerText.innerHTML = (maleText + separator + femaleText + separator).repeat(3);
+  bannerText.innerHTML = (maleText + separator + femaleText + separator).repeat(1);
 }
 
     // Initialize
