@@ -63,18 +63,14 @@ header h1 {
   font-weight: 300;
   letter-spacing: 1px;
 }
-/* Latest Record Banner */
 .latest-record-banner {
-  background-color: #FF0000;
-  padding: 0.3rem 0; /* Réduit le padding vertical pour un bandeau plus fin */
-  font-weight: bold;
-  font-size: 1.8rem;
   overflow: hidden;
   white-space: nowrap;
+  background-color: #FF0000;
+  padding: 0.3rem 0;
+  font-weight: bold;
+  font-size: 1.8rem;
   position: relative;
-  line-height: 1.1; /* Réduit l'interligne pour un meilleur centrage vertical */
-  display: flex; /* Active le mode flexbox */
-  align-items: center; /* Centre verticalement le contenu */
 }
 
 #latest-record-text {
@@ -82,8 +78,19 @@ header h1 {
   padding-left: 100%;
   animation: scroll-left 20s linear infinite;
   color: #002060;
-  line-height: 1.1; /* Applique aussi à l'élément texte pour cohérence */
+  line-height: 1.1;
 }
+
+/* Animation pour un défilement fluide */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* Déplace de 50% pour masquer la transition */
+  }
+}
+
 @keyframes scroll-left {
   0% {
     transform: translateX(0);
