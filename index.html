@@ -24,13 +24,13 @@
     <p class="subtitle">OFFICIAL CMAS & AIDA RECORDS</p>
   </header>
   <div id="latest-record-banner" class="latest-record-banner">
-    <p>Dernier record : <span id="latest-record-text"></span></p>
+    <p>Latest record: <span id="latest-record-text"></span></p>
   </div>
   <main>
     <div class="federation-choice">
       <button class="federation-btn" onclick="showFederation('cmas')">CMAS</button>
       <button class="federation-btn" onclick="showFederation('aida')">AIDA</button>
-      <button class="export-btn" onclick="exportToExcel()">Exporter en Excel</button>
+      <button class="export-btn" onclick="exportToExcel()">Export to Excel</button>
     </div>
     <section id="cmas" class="federation-section" style="display:none;">
       <h2>CMAS <span class="federation-subtitle">(World Underwater Federation)</span></h2>
@@ -76,7 +76,7 @@
     <a href="https://www.instagram.com/o2freediving" target="_blank" class="instagram-link" rel="noopener">Follow us on Instagram</a>
   </footer>
   <script>
-    // Données des records
+    // Records data
     const records = {
       aida: {
         sta: {
@@ -222,7 +222,7 @@
       }
     };
 
-    // Affiche la fédération demandée
+    // Show selected federation
     function showFederation(fed) {
       document.querySelectorAll('.federation-section').forEach(section => {
         section.style.display = 'none';
@@ -230,7 +230,7 @@
       document.getElementById(fed).style.display = 'block';
     }
 
-    // Affiche la catégorie demandée
+    // Show selected category
     function showCategory(fed, cat) {
       const containerId = fed === 'aida' ? 'aida-records' :
                           fed === 'cmas_indoor' ? 'cmas_indoor-records' :
@@ -245,7 +245,7 @@
       container.innerHTML = `<h3>${cat.toUpperCase()}</h3>` + genderButtons + `<div id="${fed}-${cat}-records" class="records-table"></div>`;
     }
 
-    // Affiche les records
+    // Show records
     function showRecords(fed, cat, gender) {
       const data = records[fed]?.[cat]?.[gender];
       const tableContainer = document.getElementById(`${fed}-${cat}-records`);
@@ -285,10 +285,10 @@
       tableContainer.innerHTML = html;
     }
 
-    // Exporte les records en Excel
+    // Export records to Excel
     function exportToExcel() {
       const allRecords = [];
-      // Parcourir toutes les fédérations, catégories et genres
+      // Iterate through all federations, categories, and genders
       for (const fed in records) {
         for (const cat in records[fed]) {
           for (const gender in records[fed][cat]) {
@@ -307,15 +307,15 @@
           }
         }
       }
-      // Créer un classeur Excel
+      // Create Excel workbook
       const ws = XLSX.utils.json_to_sheet(allRecords);
       const wb = XLSX.utils.book_new();
       XLSX.utils.book_append_sheet(wb, ws, "Freediving Records");
-      // Télécharger le fichier
+      // Download file
       XLSX.writeFile(wb, "Freediving_World_Records.xlsx");
     }
 
-    // Trouve le dernier record (date la plus récente)
+    // Find the latest record (most recent date)
     function findLatestRecord() {
       let latestRecord = null;
       let latestDate = new Date(0);
@@ -338,16 +338,16 @@
       return latestRecord;
     }
 
-    // Affiche le dernier record dans le bandeau
+    // Display the latest record in the banner
     function displayLatestRecord() {
       const latestRecord = findLatestRecord();
       if (latestRecord) {
         const latestRecordText = document.getElementById('latest-record-text');
-        latestRecordText.textContent = `${latestRecord.athlete} (${latestRecord.gender === 'male' ? 'Homme' : 'Femme'}) — ${latestRecord.cat.toUpperCase()} : ${latestRecord.result} (${latestRecord.date})`;
+        latestRecordText.textContent = `${latestRecord.athlete} (${latestRecord.gender === 'male' ? 'Men' : 'Women'}) — ${latestRecord.cat.toUpperCase()}: ${latestRecord.result} (${latestRecord.date})`;
       }
     }
 
-    // Initialisation
+    // Initialize
     window.onload = function() {
       showFederation('aida');
       displayLatestRecord();
