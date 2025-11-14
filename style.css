@@ -75,7 +75,6 @@ header h1 {
   line-height: 1.1; /* Réduit l'interligne pour un meilleur centrage vertical */
   display: flex; /* Active le mode flexbox */
   align-items: center; /* Centre verticalement le contenu */
-  justify-content: center; /* Centre horizontalement le contenu (optionnel, si besoin) */
 }
 
 #latest-record-text {
