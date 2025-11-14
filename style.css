@@ -66,9 +66,9 @@ header h1 {
 /* Latest Record Banner */
 .latest-record-banner {
   background-color: #FF0000;
-  padding: 0.8rem;
+  padding: 0.5rem;
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 1.8rem;
   overflow: hidden;
   white-space: nowrap;
   position: relative;
