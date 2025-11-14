@@ -351,18 +351,19 @@
     }
 
     // Display the latest records in the banner, scrolling left
-    function displayLatestRecords() {
-      const { male, female } = findLatestRecords();
-      const bannerText = document.getElementById('latest-record-text');
-      if (!male || !female) {
-        bannerText.textContent = "No records available.";
-        return;
-      }
-      const maleText = `Latest record Men: ${male.athlete} — ${male.cat.toUpperCase()}: ${male.result} (${male.date})`;
-      const femaleText = `Latest record Women: ${female.athlete} — ${female.cat.toUpperCase()}: ${female.result} (${female.date})`;
-      const separator = "\u00A0\u00A0•\u00A0\u00A0";
-      bannerText.innerHTML = maleText + separator + femaleText + separator + maleText + separator + femaleText + separator;
-    }
+function displayLatestRecords() {
+  const { male, female } = findLatestRecords();
+  const bannerText = document.getElementById('latest-record-text');
+  if (!male || !female) {
+    bannerText.textContent = "No records available.";
+    return;
+  }
+  const maleText = `Latest record Men: ${male.athlete} — ${male.cat.toUpperCase()}: ${male.result} (${male.date})`;
+  const femaleText = `Latest record Women: ${female.athlete} — ${female.cat.toUpperCase()}: ${female.result} (${female.date})`;
+  const separator = "\u00A0\u00A0•\u00A0\u00A0";
+  // Duplication optimisée (3x seulement)
+  bannerText.innerHTML = (maleText + separator + femaleText + separator).repeat(3);
+}
 
     // Initialize
     window.onload = function() {
