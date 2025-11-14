@@ -72,31 +72,154 @@
   </footer>
   <script>
     // Données des records
-    const records = {
-      aida: {
-        sta: { male: [{ athlete: "Branko Petrovic (SRB)", result: "11:54", date: "2021-06-25", place: "Belgrade, Serbia", source: "AIDA" }], female: [{ athlete: "Natalia Molchanova (RUS)", result: "9:02", date: "2009-06-28", place: "Sofia, Bulgaria", source: "AIDA" }] },
-        dyn: { male: [{ athlete: "Mateusz Malina (POL)", result: "330 m", date: "2023-06-25", place: "Gdynia, Poland", source: "AIDA" }], female: [{ athlete: "Magdalena Solich-Talanda (POL)", result: "291 m", date: "2023-06-25", place: "Gdynia, Poland", source: "AIDA" }] },
-        dnf: { male: [{ athlete: "Mateusz Malina (POL)", result: "300 m", date: "2023-06-24", place: "Gdynia, Poland", source: "AIDA" }], female: [{ athlete: "Magdalena Solich-Talanda (POL)", result: "244 m", date: "2016-06-25", place: "Belgrade, Serbia", source: "AIDA" }] },
-        dynb: { male: [{ athlete: "Arnaud Jérald (FRA)", result: "300 m", date: "2021-06-28", place: "Fos-sur-Mer, France", source: "AIDA" }], female: [{ athlete: "Magdalena Solich-Talanda (POL)", result: "277 m", date: "2021-06-26", place: "Fos-sur-Mer, France", source: "AIDA" }] },
-        cwt: { male: [{ athlete: "Alexey Molchanov (RUS)", result: "133 m", date: "2023-07-25", place: "Limassol, Cyprus", source: "AIDA" }], female: [{ athlete: "Alenka Artnik (SLO)", result: "128 m", date: "2023-07-23", place: "Limassol, Cyprus", source: "AIDA" }] },
-        cwtb: { male: [{ athlete: "Alexey Molchanov (RUS)", result: "132 m", date: "2023-07-24", place: "Limassol, Cyprus", source: "AIDA" }], female: [{ athlete: "Alenka Artnik (SLO)", result: "118 m", date: "2023-07-22", place: "Limassol, Cyprus", source: "AIDA" }] },
-        cnf: { male: [{ athlete: "William Winram (CAN)", result: "102 m", date: "2021-07-25", place: "Kalamata, Greece", source: "AIDA" }], female: [{ athlete: "Alenka Artnik (SLO)", result: "73 m", date: "2017-07-25", place: "Roatan, Honduras", source: "AIDA" }] },
-        fim: { male: [{ athlete: "William Winram (CAN)", result: "130 m", date: "2021-07-25", place: "Kalamata, Greece", source: "AIDA" }], female: [{ athlete: "Sayuri Kinoshita (JPN)", result: "97 m", date: "2016-07-25", place: "Kalamata, Greece", source: "AIDA" }] },
-        vwt: { male: [{ athlete: "Stig Severinsen (DEN)", result: "150 m", date: "2013-07-25", place: "Kalamata, Greece", source: "AIDA" }], female: [{ athlete: "Nanako Matsushima (JPN)", result: "130 m", date: "2016-07-25", place: "Kalamata, Greece", source: "AIDA" }] },
-        nlt: { male: [{ athlete: "Herbert Nitsch (AUT)", result: "214 m", date: "2007-06-14", place: "Spetses, Greece", source: "AIDA" }], female: [{ athlete: "Tanya Streeter (Cayman Islands)", result: "160 m", date: "2002-08-17", place: "Turks and Caicos", source: "AIDA" }] }
-      },
-      cmas_indoor: {
-        sta: { male: [{ athlete: "Branko Petrovic (SRB)", result: "10:45.00", date: "2017-11-11", place: "Subotica, Serbia", source: "CMAS" }], female: [{ athlete: "Heike Monika Schwerdtner (GER)", result: "09:05.00", date: "2025-05-23", place: "Athens, Greece", source: "CMAS" }] },
-        dyn: { male: [{ athlete: "Mateusz Malina (POL)", result: "326.50 m", date: "2025-05-24", place: "Athens, Greece", source: "CMAS" }], female: [{ athlete: "Mirela Kardasevic (CRO)", result: "284 m", date: "2025-05-24", place: "Athens, Greece", source: "CMAS" }] },
-        dnf: { male: [{ athlete: "Mateusz Malina (POL)", result: "300 m", date: "2025-05-21", place: "Athens, Greece", source: "CMAS" }], female: [{ athlete: "Julia Kozerska (POL)", result: "214 m", date: "2025-05-20", place: "Athens, Greece", source: "CMAS" }] }
-      },
-      cmas_outdoor: {
-        cwt: { male: [{ athlete: "Alexey Molchanov (RUS)", result: "136 m", date: "2023-08-21", place: "Roatán, Honduras", source: "CMAS" }], female: [{ athlete: "Alenka Artnik (SLO)", result: "122 m", date: "2021-07-21", place: "Long Island, Bahamas", source: "CMAS" }] },
-        cwtb: { male: [{ athlete: "Alexey Molchanov (RUS)", result: "124 m", date: "2023-08-25", place: "Roatán, Honduras", source: "CMAS" }], female: [{ athlete: "Alenka Artnik (SLO)", result: "106 m", date: "2021-09-30", place: "Kaş, Turkey", source: "CMAS" }] },
-        cnf: { male: [{ athlete: "Petar Klovar (CRO)", result: "132 m", date: "2022-10-04", place: "Kaş / Antalya, Turkey", source: "CMAS" }], female: [{ athlete: "Kateryna Sadurska (UKR)", result: "80 m", date: "2024-10-10", place: "Kalamata, Greece", source: "CMAS" }] },
-        fim: { male: [{ athlete: "William Winram (SUI)", result: "140 m", date: "2023-12-11", place: "Sharm el-Sheikh, Egypt", source: "CMAS" }], female: [{ athlete: "Şahika Ercümen (TUR)", result: "106 m", date: "2023-10-17", place: "Hatay, Türkiye", source: "CMAS" }] }
-      }
-    };
+const records = {
+  aida: {
+    sta: {
+      male: [
+        { athlete: "Stéphane Mifsud (FRA)", result: "11:35", date: "2009-06-08", place: "Hyères, France", source: "AIDA" }
+      ],
+      female: [
+        { athlete: "Heike Schwerdtner (GER)", result: "09:22", date: "2025-05-04", place: "—", source: "AIDA" }
+      ]
+    },
+    dyn: {
+      male: [
+        { athlete: "Ming (William Joy) Jin (CHN)", result: "307 m", date: "2024-08-25", place: "—", source: "AIDA" }
+      ],
+      female: [
+        { athlete: "Zsófia Törőcsik (HUN)", result: "280 m", date: "2025-07-02", place: "—", source: "AIDA" }
+      ]
+    },
+    dnf: {
+      male: [
+        { athlete: "Mateusz Malina (POL)", result: "250 m", date: "2022-05-01", place: "—", source: "AIDA" }
+      ],
+      female: [
+        { athlete: "Julia Kozerska (POL)", result: "213 m", date: "2023-06-13", place: "—", source: "AIDA" }
+      ]
+    },
+    dynb: {
+      male: [
+        { athlete: "Guillaume Bourdila (FRA)", result: "298 m", date: "2025-06-28", place: "—", source: "AIDA" }
+      ],
+      female: [
+        { athlete: "Zsófia Törőcsik (HUN)", result: "259 m", date: "2025-06-28", place: "—", source: "AIDA" }
+      ]
+    },
+    cwt: {
+      male: [
+        { athlete: "Alexey Molchanov (AIN)", result: "136 m", date: "2023-09-29", place: "—", source: "AIDA" }
+      ],
+      female: [
+        { athlete: "Alessia Zecchini (ITA)", result: "123 m", date: "2023-05-24", place: "—", source: "AIDA" }
+      ]
+    },
+    cwtb: {
+      male: [
+        { athlete: "Alexey Molchanov (AIN)", result: "126 m", date: "2025-09-26", place: "—", source: "AIDA" }
+      ],
+      female: [
+        { athlete: "Alenka Artnik (SLO)", result: "111 m", date: "2023-07-30", place: "—", source: "AIDA" }
+      ]
+    },
+    cnf: {
+      male: [
+        { athlete: "Petar Klovar (CRO)", result: "103 m", date: "2025-05-26", place: "—", source: "AIDA" }
+      ],
+      female: [
+        { athlete: "Kateryna Sadurska (UKR)", result: "84 m", date: "2024-12-02", place: "—", source: "AIDA" }
+      ]
+    },
+    fim: {
+      male: [
+        { athlete: "Petar Klovar (CRO)", result: "135 m", date: "2023-09-27", place: "—", source: "AIDA" }
+      ],
+      female: [
+        { athlete: "Sanda Delija (CRO)", result: "103 m", date: "2025-05-04", place: "—", source: "AIDA" }
+      ]
+    },
+    vwt: {
+      male: [
+        { athlete: "Alexey Molchanov (AIN)", result: "156 m", date: "2023-03-28", place: "—", source: "AIDA" }
+      ],
+      female: [
+        { athlete: "Nanja Van Den Broek (NED)", result: "130 m", date: "2015-10-18", place: "—", source: "AIDA" }
+      ]
+    },
+    nlt: {
+      male: [
+        { athlete: "Herbert Nitsch (AUT)", result: "214 m", date: "2007-06-09", place: "—", source: "AIDA" }
+      ],
+      female: [
+        { athlete: "Tanya Streeter (USA)", result: "160 m", date: "2002-08-17", place: "—", source: "AIDA" }
+      ]
+    }
+  },
+
+  /* CMAS RECORDS — ONLY SENIOR (POOL + SEA) */
+
+  cmas_indoor: {
+    sta: {
+      male: [
+        { athlete: "Branko Petrovic (SRB)", result: "10:45.00", date: "2017-11-11", place: "Subotica, Serbia", source: "CMAS" }
+      ],
+      female: [
+        { athlete: "Heike Monika Schwerdtner (GER)", result: "09:05.00", date: "2025-05-23", place: "Athens, Greece", source: "CMAS" }
+      ]
+    },
+    dyn: {
+      male: [
+        { athlete: "Mateusz Malina (POL)", result: "326.50 m", date: "2025-05-24", place: "Athens, Greece", source: "CMAS" }
+      ],
+      female: [
+        { athlete: "Mirela Kardasevic (CRO)", result: "284 m", date: "2025-05-24", place: "Athens, Greece", source: "CMAS" }
+      ]
+    },
+    dnf: {
+      male: [
+        { athlete: "Mateusz Malina (POL)", result: "239 m", date: "2025-05-20", place: "Athens, Greece", source: "CMAS" }
+      ],
+      female: [
+        { athlete: "Julia Kozerska (POL)", result: "214 m", date: "2025-05-20", place: "Athens, Greece", source: "CMAS" }
+      ]
+    }
+  },
+
+  cmas_outdoor: {
+    cwt: {
+      male: [
+        { athlete: "Alexey Molchanov (CMAS)", result: "136 m", date: "2023-08-21", place: "Roatán, Honduras", source: "CMAS" }
+      ],
+      female: [
+        { athlete: "Alenka Artnik (SLO)", result: "122 m", date: "2021-07-21", place: "Long Island, Bahamas", source: "CMAS" }
+      ]
+    },
+    cwtb: {
+      male: [
+        { athlete: "Alexey Molchanov (CMAS)", result: "124 m", date: "2023-08-25", place: "Roatán, Honduras", source: "CMAS" }
+      ],
+      female: [
+        { athlete: "Alenka Artnik (SLO)", result: "106 m", date: "2021-09-30", place: "Kaş, Turkey", source: "CMAS" }
+      ]
+    },
+    cnf: {
+      male: [
+        { athlete: "Alexey Molchanov (CMAS)", result: "100 m", date: "2023-08-24", place: "Roatán, Honduras", source: "CMAS" }
+      ],
+      female: [
+        { athlete: "Kateryna Sadurska (UKR)", result: "80 m", date: "2024-10-10", place: "Kalamata, Greece", source: "CMAS" }
+      ]
+    },
+    fim: {
+      male: [
+        { athlete: "William Winram (SUI)", result: "140 m", date: "2023-12-11", place: "Sharm el-Sheikh, Egypt", source: "CMAS" }
+      ],
+      female: [
+        { athlete: "Şahika Ercümen (TUR)", result: "106 m", date: "2023-10-17", place: "Hatay, Türkiye", source: "CMAS" }
+      ]
+    }
+  }
+};
 
     // Affiche la fédération demandée
     function showFederation(fed) {
