@@ -24,7 +24,7 @@ body {
   height: 60px;
   border-radius: 50%;
   box-shadow: none;
-  animation: breathe 4s ease-in-out infinite;
+  animation: breathe 5s ease-in-out infinite;
 }
 /* Header Styles */
 header {
