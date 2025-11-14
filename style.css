@@ -21,6 +21,7 @@ header {
 }
 
 .logo-container {
+  flex-direction: column;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -42,9 +43,11 @@ header {
 }
 
 .logo-text {
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 0.85rem; /* petit */
+  font-weight: 300;   /* fin */
   color: white;
+  text-shadow: none;  /* optionnel */
+  margin-top: 5px;    /* petit espace sous le logo */
 }
 
 header h1 {
