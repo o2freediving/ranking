@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 body {
   background-color: #f8f9fa;
@@ -25,6 +25,7 @@ body {
   border-radius: 50%;
   box-shadow: none;
   animation: breathe 5s ease-in-out infinite;
+  will-change: transform;
 }
 /* Header Styles */
 header {
@@ -63,7 +64,7 @@ header h1 {
   font-weight: 300;
   letter-spacing: 1px;
 }
-
+/* Latest Record Banner */
 .latest-record-banner {
   overflow: hidden;
   white-space: nowrap;
@@ -73,32 +74,16 @@ header h1 {
   font-size: 1.8rem;
   position: relative;
 }
-
 #latest-record-text {
   display: inline-block;
   padding-left: 100%;
-  animation: scroll-left 30s linear infinite;
+  animation: scroll-left 60s linear infinite;
   color: #002060;
   line-height: 1.1;
 }
-
-/* Animation pour un défilement fluide */
 @keyframes scroll-left {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%); /* Déplace de 50% pour masquer la transition */
-  }
-}
-
-@keyframes scroll-left {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 /* Federation Choice Buttons */
 .federation-choice {
@@ -120,15 +105,15 @@ header h1 {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .export-btn {
-  background-color: #FF0000; /* Rouge par défaut (inverse des autres) */
+  background-color: #FF0000;
 }
 .export-btn:hover {
-  background-color: #002060; /* Bleu au survol (inverse des autres) */
+  background-color: #002060;
   transform: translateY(-2px);
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
 .federation-btn:hover {
-  background-color: #FF0000; /* Rouge au survol (comme avant) */
+  background-color: #FF0000;
   transform: translateY(-2px);
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
@@ -264,5 +249,9 @@ footer {
   }
   header h1 {
     font-size: 2rem;
+  }
+  th, td {
+    padding: 0.5rem;
+    font-size: 0.9rem;
   }
 }
